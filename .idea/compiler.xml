@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cassandra" target="16" />
+      <module name="embedded" target="16" />
+      <module name="techmate_core" target="16" />
+      <module name="techmate_parent" target="16" />
+      <module name="utility" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

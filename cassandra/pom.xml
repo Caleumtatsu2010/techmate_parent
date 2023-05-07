@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.caleumtatsu2010</groupId>
+        <artifactId>techmate_parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.caleumtatsu2010</groupId>
+    <artifactId>cassandra</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>cassandra</name>
+    <packaging>pom</packaging>
+    <description>cassandra project</description>
+
+    <properties>
+        <java.version>18.0.1</java.version>
+        <maven.compiler.target>18</maven.compiler.target>
+        <maven.compiler.source>18</maven.compiler.source>
+    </properties>
+    <dependencies>
+
+        <dependency>
+            <groupId>com.datastax.oss</groupId>
+            <artifactId>java-driver-core</artifactId>
+            <version>4.13.0</version>
+        </dependency>
+    </dependencies>
+</project>

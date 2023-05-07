@@ -15,9 +15,9 @@ public class ResultSetUtil {
 	public static void mapResultSetToObjectFieldNames(ResultSet rs, Object obj, List<String> attrNames) throws SQLException {
 		Object resultSetValue = new Object();
 		ResultSetMetaData rsmd = rs.getMetaData();
-		for (int i = 0; i < rsmd.getColumnCount(); i++) {
+		for (int i = 1; i <= rsmd.getColumnCount(); i++) {
 			switch (rsmd.getColumnType(i)) {
-				case Types.VARCHAR | Types.CHAR | Types.NCHAR:
+				case Types.LONGVARCHAR | Types.VARCHAR | Types.CHAR | Types.NCHAR:
 					resultSetValue = rs.getString(rsmd.getColumnName(i));
 					break;
 				case Types.INTEGER:
@@ -28,7 +28,7 @@ public class ResultSetUtil {
 					break;
 				default:
 			}
-			Invoke.invokeSetter(obj, attrNames.get(i), resultSetValue);
+			Invoke.invokeSetter(obj, attrNames.get(i-1), resultSetValue);
 		}
 	}
 	

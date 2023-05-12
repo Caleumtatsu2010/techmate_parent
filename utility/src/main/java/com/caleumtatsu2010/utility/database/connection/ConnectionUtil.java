@@ -15,6 +15,11 @@ public class ConnectionUtil {
 	
 	private static String DbPropPath = Path.databaseProperties;
 	
+	private static String JDBC_URL = "jdbc:";
+	private static String DBL_SLASH = "://";
+	private static String DBL_DOT = ":";
+	private static String SLASH = "/";
+	private static String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
 	
 	public ConnectionUtil(String dbName) {
 		this.connInfo = readConnectionInfo(dbName);
@@ -22,14 +27,13 @@ public class ConnectionUtil {
 	
 	public Connection getConn() {
 		Connection conn = null;
-		String url = "jdbc:" + connInfo.getDbtype() + "://" + connInfo.getHost() + ":" + connInfo.getPort() + "/" + connInfo.getDbname();
+		String url = JDBC_URL + connInfo.getDbtype() + DBL_SLASH + connInfo.getHost() + DBL_DOT + connInfo.getPort() + SLASH + connInfo.getDbname();
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName(DRIVER_NAME);
 		} catch (ClassNotFoundException ex) {
 			System.err.println("JDBC Driver not found!");
 			return null;
 		}
-		System.out.println("Register successful!");
 		try {
 			conn = DriverManager.getConnection(url, this.connInfo.getUsername(), this.connInfo.getPassword());
 		} catch (SQLException ex) {
@@ -43,7 +47,7 @@ public class ConnectionUtil {
 			try {
 				connection.rollback();
 			} catch (SQLException ex) {
-				System.out.println("Close Connection failed!");
+				System.err.println("Close Connection failed!");
 			} finally {
 				connection.close();
 			}
@@ -56,7 +60,7 @@ public class ConnectionUtil {
 			try {
 				ps.close();
 			} catch (SQLException ex) {
-				System.out.println("Close PreparedStatement failed!");
+				System.err.println("Close PreparedStatement failed!");
 			}
 		}
 	}
@@ -84,7 +88,8 @@ public class ConnectionUtil {
 			try {
 				rs.close();
 			} catch (SQLException ex) {
-				System.out.println("Close ResultSet failed!");
+				System.err.println("Close ResultSet failed!");
+				ex.printStackTrace();
 			}
 		}
 	}

@@ -16,18 +16,30 @@ public class ResultSetUtil {
 		ResultSetMetaData rsmd = rs.getMetaData();
 		for (int i = 1; i <= rsmd.getColumnCount(); i++) {
 			switch (rsmd.getColumnType(i)) {
-				case Types.LONGVARCHAR | Types.VARCHAR | Types.CHAR | Types.NCHAR:
+				case Types.LONGVARCHAR:
+					resultSetValue = rs.getString(rsmd.getColumnName(i));
+					break;
+				case Types.VARCHAR:
+					resultSetValue = rs.getString(rsmd.getColumnName(i));
+					break;
+				case Types.CHAR:
 					resultSetValue = rs.getString(rsmd.getColumnName(i));
 					break;
 				case Types.INTEGER:
 					resultSetValue = rs.getInt(rsmd.getColumnName(i));
 					break;
-				case Types.DOUBLE | Types.FLOAT | Types.DECIMAL:
+				case Types.DOUBLE:
+					resultSetValue = rs.getDouble(rsmd.getColumnName(i));
+					break;
+				case Types.FLOAT:
+					resultSetValue = rs.getDouble(rsmd.getColumnName(i));
+					break;
+				case Types.DECIMAL:
 					resultSetValue = rs.getDouble(rsmd.getColumnName(i));
 					break;
 				default:
 			}
-			Invoke.invokeSetter(obj, attrNames.get(i-1), resultSetValue);
+			Invoke.invokeSetter(obj, attrNames.get(i - 1), (resultSetValue == null) ? "null" : resultSetValue);
 		}
 	}
 	

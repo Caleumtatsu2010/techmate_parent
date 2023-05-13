@@ -7,6 +7,7 @@ public class StringValidate {
         }
         return str;
     }
+    
 
     public static String NulltoZero(String value) {
         if (value == null || value.trim().length() == 0) {

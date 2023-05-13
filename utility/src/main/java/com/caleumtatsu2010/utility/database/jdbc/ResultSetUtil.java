@@ -3,7 +3,6 @@ package com.caleumtatsu2010.utility.database.jdbc;
 import com.caleumtatsu2010.utility.common.*;
 import com.caleumtatsu2010.utility.object.*;
 
-//import javax.servlet.http.HttpServletRequest;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -37,12 +36,5 @@ public class ResultSetUtil {
 		mapResultSetToObjectFieldNames(rs, obj, attrNames);
 	}
 	
-//	public static void mapRequestAttrToObject(HttpServletRequest request, Object obj) throws SQLException {
-//		List<String> attrNames = Invoke.getAllAttributeName(obj);
-//		for (int i = 0; i < attrNames.size(); i++) {
-//			String requestParam = StringValidate.NulltoBlank(request.getParameter(attrNames.get(i)));
-//			Invoke.invokeSetter(obj, attrNames.get(i), requestParam);
-//		}
-//	}
 	
 }

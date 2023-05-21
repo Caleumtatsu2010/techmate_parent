@@ -1,7 +1,7 @@
 package com.caleumtatsu2010.cassandra.connection.astra;
 
 import com.caleumtatsu2010.cassandra.models.CASConnectInfo;
-import com.caleumtatsu2010.cassandra.untitle.CASPath;
+import com.caleumtatsu2010.cassandra.path.CASPath;
 import com.caleumtatsu2010.utility.file.properties.Utils;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.ResultSet;
@@ -21,10 +21,10 @@ public class AstraConnector {
 	
 	public static CASConnectInfo readCASConnectInfo() {
 		Properties prop = Utils.loadProp(CASPath.astraToken);
-		String clientId = prop.getProperty("ClientId");
-		String clientSecret = prop.getProperty("ClientSecret");
-		String role = prop.getProperty("Role");
-		String token = prop.getProperty("Token");
+		String clientId = prop.getProperty(CASPath.clientId);
+		String clientSecret = prop.getProperty(CASPath.clientSecret);
+		String role = prop.getProperty(CASPath.role);
+		String token = prop.getProperty(CASPath.token);
 		return new CASConnectInfo(clientId, clientSecret, role, token);
 	}
 	

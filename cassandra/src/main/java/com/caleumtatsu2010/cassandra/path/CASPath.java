@@ -1,4 +1,4 @@
-package com.caleumtatsu2010.cassandra.untitle;
+package com.caleumtatsu2010.cassandra.path;
 
 public class CASPath {
 	private static String dir = "C:\\stuff\\Projects\\techmate";
@@ -13,5 +13,12 @@ public class CASPath {
 	
 	
 	public static String cart = "cart";
+	
+	public static String user = "user";
+	
+	public static String clientId = "ClientId";
+	public static String clientSecret = "ClientSecret";
+	public static String role = "Role";
+	public static String token = "Token";
 	
 }

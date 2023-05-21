@@ -5,13 +5,13 @@ import com.caleumtatsu2010.cassandra.connection.astra.AstraConnector;
 import com.caleumtatsu2010.cassandra.connection.cqlquery.account.CASAccountQueries;
 import com.caleumtatsu2010.cassandra.dao.CASDao;
 import com.caleumtatsu2010.cassandra.models.account.CASAccount;
+import com.caleumtatsu2010.cassandra.path.CASPath;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.BoundStatement;
 import com.datastax.oss.driver.api.core.cql.PreparedStatement;
 import com.datastax.oss.driver.api.core.cql.ResultSet;
 import com.datastax.oss.driver.api.core.cql.Row;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -149,7 +149,7 @@ public class CASAccountDao implements CASDao<CASAccount> {
 	
 	public static void main(String[] args) {
 		AstraConnector astraConnector = new AstraConnector();
-		CASAccountDao CASAccountDao = new CASAccountDao(astraConnector, "user");
+		CASAccountDao CASAccountDao = new CASAccountDao(astraConnector, CASPath.user);
 		CASAccountDao.getAll();
 		
 		CASAccount CASAccount = new CASAccount(UUID.randomUUID(), "test username 2", "test password 2", "privatekey 2", 20, "active");

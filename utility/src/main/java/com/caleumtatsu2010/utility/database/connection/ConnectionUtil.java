@@ -2,7 +2,7 @@ package com.caleumtatsu2010.utility.database.connection;
 
 import com.caleumtatsu2010.utility.file.common.Path;
 import com.caleumtatsu2010.utility.file.properties.Utils;
-import com.caleumtatsu2010.utility.object.Invoke;
+import com.caleumtatsu2010.utility.object.reflect.Invoke;
 
 import java.sql.*;
 import java.util.List;

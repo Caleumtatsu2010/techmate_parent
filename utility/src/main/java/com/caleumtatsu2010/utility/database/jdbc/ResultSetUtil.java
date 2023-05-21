@@ -1,7 +1,6 @@
 package com.caleumtatsu2010.utility.database.jdbc;
 
-import com.caleumtatsu2010.utility.common.*;
-import com.caleumtatsu2010.utility.object.*;
+import com.caleumtatsu2010.utility.object.reflect.Invoke;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;

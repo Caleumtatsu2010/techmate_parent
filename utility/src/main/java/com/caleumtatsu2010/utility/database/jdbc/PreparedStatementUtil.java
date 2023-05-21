@@ -1,9 +1,8 @@
 package com.caleumtatsu2010.utility.database.jdbc;
 
-import com.caleumtatsu2010.utility.object.Invoke;
+import com.caleumtatsu2010.utility.object.reflect.Invoke;
 
 import java.sql.*;
-import java.util.Arrays;
 import java.util.List;
 
 public class PreparedStatementUtil {

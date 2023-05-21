@@ -1,4 +1,4 @@
-package com.caleumtatsu2010.utility.object;
+package com.caleumtatsu2010.utility.object.reflect;
 
 import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;

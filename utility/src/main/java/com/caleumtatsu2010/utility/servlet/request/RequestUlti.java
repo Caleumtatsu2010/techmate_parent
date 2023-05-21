@@ -1,42 +1,35 @@
-//package com.caleumtatsu2010.utility.servlet.request;
-//
-//import com.caleumtatsu2010.utility.object.reflect.Invoke;
-//import javax.servlet.*;
-//import java.io.IOException;
-//import java.util.List;
-//
-//public class RequestUlti {
-//
-//	public static void mapRequestToObjectFieldNames(HttpServletRequest request, Object obj, List<String> attrNames) throws SQLException {
-//		Object resultSetValue = new Object();
-//		ResultSetMetaData rsmd = rs.getMetaData();
-//		for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-//			switch (rsmd.getColumnType(i)) {
-//				case Types.LONGVARCHAR:
-//					resultSetValue = rs.getString(rsmd.getColumnName(i));
-//					break;
-//				case Types.VARCHAR:
-//					resultSetValue = rs.getString(rsmd.getColumnName(i));
-//					break;
-//				case Types.CHAR:
-//					resultSetValue = rs.getString(rsmd.getColumnName(i));
-//					break;
-//				case Types.INTEGER:
-//					resultSetValue = rs.getInt(rsmd.getColumnName(i));
-//					break;
-//				case Types.DOUBLE:
-//					resultSetValue = rs.getDouble(rsmd.getColumnName(i));
-//					break;
-//				case Types.FLOAT:
-//					resultSetValue = rs.getDouble(rsmd.getColumnName(i));
-//					break;
-//				case Types.DECIMAL:
-//					resultSetValue = rs.getDouble(rsmd.getColumnName(i));
-//					break;
-//				default:
-//			}
-//			Invoke.invokeSetter(obj, attrNames.get(i - 1), (resultSetValue == null) ? "null" : resultSetValue);
-//		}
-//	}
-//
-//}
+package com.caleumtatsu2010.utility.servlet.request;
+
+import com.caleumtatsu2010.utility.common.StringValidate;
+import com.caleumtatsu2010.utility.object.reflect.Invoke;
+
+import javax.servlet.*;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+public class RequestUlti {
+	
+	public static void mapRequestToObjectFieldNames(Map<String, Object> request, Object obj, List<String> attrNames) {
+		try {
+			List<String> attrNames = Invoke.getAllAttributeName(obj);
+			List<String> attrTypes = Invoke.getAllAttributeType(obj);
+			Object requestParamValue = new Object();
+			for (int i = 0; i < attrNames.size(); i++) {
+				switch (attrTypes.get(i)) {
+					case "class java.lang.String":
+						requestParamValue = StringValidate.NulltoBlank(request.getParameter(attrNames.get(i)));
+						break;
+					case "int":
+						requestParamValue = StringValidate.safeParseInt(request.getParameter(attrNames.get(i)));
+						break;
+					case "double":
+						requestParamValue = StringValidate.safeParseDouble(request.getParameter(attrNames.get(i)));
+						break;
+					default:
+				}
+				Invoke.invokeSetter(obj, attrNames.get(i), requestParamValue);
+			}
+		}
+		
+	}

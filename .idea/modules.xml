@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/embedded/embedded.iml" filepath="$PROJECT_DIR$/embedded/embedded.iml" />
       <module fileurl="file://$PROJECT_DIR$/techmate_core/techmate_core.iml" filepath="$PROJECT_DIR$/techmate_core/techmate_core.iml" />
       <module fileurl="file://$PROJECT_DIR$/techmate_parent.iml" filepath="$PROJECT_DIR$/techmate_parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/techmate_test/techmate_test.iml" filepath="$PROJECT_DIR$/techmate_test/techmate_test.iml" />
       <module fileurl="file://$PROJECT_DIR$/utility/utility.iml" filepath="$PROJECT_DIR$/utility/utility.iml" />
     </modules>
   </component>

@@ -9,6 +9,7 @@
       <module name="embedded" target="16" />
       <module name="techmate_core" target="16" />
       <module name="techmate_parent" target="16" />
+      <module name="techmate_test" target="16" />
       <module name="utility" target="17" />
     </bytecodeTargetLevel>
   </component>

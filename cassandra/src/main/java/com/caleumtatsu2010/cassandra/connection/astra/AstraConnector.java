@@ -29,7 +29,7 @@ public class AstraConnector {
 		return new CASConnectInfo(clientId, clientSecret, role, token);
 	}
 	
-	public CqlSession connect(String keyspace) {
+	public CqlSession connect(String keyspace)  {
 		// Create the CqlSession object:
 		CqlSession session = CqlSession.builder()
 				.withCloudSecureConnectBundle(Paths.get(CASPath.secureConnectBundle))

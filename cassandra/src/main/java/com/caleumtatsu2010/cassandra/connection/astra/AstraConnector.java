@@ -8,6 +8,7 @@ import com.datastax.oss.driver.api.core.cql.ResultSet;
 import com.datastax.oss.driver.api.core.cql.Row;
 
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Properties;
 
 
@@ -62,13 +63,15 @@ public class AstraConnector {
 				.build()) {
 			// Select the release_version from the system.local table:
 			ResultSet rs = session.execute("select * from cart.cart");
-			Row row = rs.one();
+			List<Row> rowList = rs.all();
 			//Print the results of the CQL query to the console:
-			if (row != null) {
-				System.out.println(row.getUuid("id"));
-				System.out.println(row.getInstant("created_at"));
-			} else {
-				System.out.println("An error occurred.");
+			for (int i=0;i<rowList.size();i++) {
+				System.out.println(rowList.get(i).getUuid("id"));
+				System.out.println(rowList.get(i).getBoolean("cart_is_active"));
+				System.out.println(rowList.get(i).getInt("quantity"));
+				System.out.println(rowList.get(i).getInstant("created_at"));
+				System.out.println(rowList.get(i).getDouble("total_price"));
+				System.out.println(rowList.get(i).getUuid("user_id"));
 			}
 		}
 	}

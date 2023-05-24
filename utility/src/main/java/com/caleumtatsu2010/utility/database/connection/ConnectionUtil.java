@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.utility.database.connection;
 
-import com.caleumtatsu2010.utility.file.common.Path;
+import com.caleumtatsu2010.utility.database.DatabasePath;
 import com.caleumtatsu2010.utility.file.properties.Utils;
 import com.caleumtatsu2010.utility.object.reflect.Invoke;
 
@@ -13,7 +13,7 @@ public class ConnectionUtil {
 	
 	private ConnectInfo connInfo = null;
 	
-	private static String DbPropPath = Path.databaseProperties;
+	private static String DbPropPath = DatabasePath.databaseProperties;
 	
 	private static String JDBC_URL = "jdbc:";
 	private static String DBL_SLASH = "://";

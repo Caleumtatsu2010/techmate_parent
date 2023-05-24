@@ -6,7 +6,8 @@ public class CASAccountQueries {
 	
 	public static String selectById = "select * from user.account where id = ?;";
 	
-	public static String insertById = " insert into user.account (id, username, password, privatekey, account_typeId, account_status) values (?, ?, ?, ?, ?, ?); ";
+	public static String insertById = " insert into user.account (id, username, password, private_key, account_typeId, account_status) " +
+										"values (?, ?, ?, ?, ?, ?); ";
 	
 //	public static String updateById = "UPDATE cart.cart SET cart_is_active = ?, created_at = ?, modified_at = ?, quantity=?, total_price=?, user_id=?  WHERE id = ? IF EXISTS;";
 //

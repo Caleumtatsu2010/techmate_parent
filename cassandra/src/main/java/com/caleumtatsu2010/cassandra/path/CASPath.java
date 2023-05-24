@@ -1,7 +1,7 @@
 package com.caleumtatsu2010.cassandra.path;
 
 public class CASPath {
-	private static String dir = "C:\\stuff\\Projects\\techmate";
+	private static String dir = "C:\\stuff\\Projects\\techmate_parent";
 	
 	private static String resourceDir = dir + "\\cassandra\\src\\main\\resources\\";
 	

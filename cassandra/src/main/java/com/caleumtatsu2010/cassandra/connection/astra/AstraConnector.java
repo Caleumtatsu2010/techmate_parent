@@ -1,7 +1,7 @@
 package com.caleumtatsu2010.cassandra.connection.astra;
 
-import com.caleumtatsu2010.cassandra.models.CASConnectInfo;
-import com.caleumtatsu2010.cassandra.path.CASPath;
+import com.caleumtatsu2010.cassandra.models.database.CASConnectInfo;
+import com.caleumtatsu2010.cassandra.models.database.CASPath;
 import com.caleumtatsu2010.utility.file.properties.Utils;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.ResultSet;

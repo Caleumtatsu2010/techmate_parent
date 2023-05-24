@@ -40,10 +40,6 @@ public class CASCartItemDao implements CASDao<CASCartItem> {
 			for (Row row : rows) {
 				list.add(new CASCartItem(row.getUuid("id")
 						, row.getUuid("cart_id")
-						, Timestamp.from(row.getInstant("created_at"))
-						, Timestamp.from(row.getInstant("modified_at"))
-						, row.getString("name")
-						, row.getDouble("price")
 						, row.getUuid("product_id")));
 			}
 			return list;
@@ -66,7 +62,7 @@ public class CASCartItemDao implements CASDao<CASCartItem> {
 			String cqlCartInsert = CASCartItemQueries.insertById;
 			cqlSession = astraConnector.connect(keyspace);
 			ps = cqlSession.prepare(cqlCartInsert);
-			bound = ps.bind(cartItem.getId(), cartItem.getCartId(), cartItem.getCreatedAt().toInstant(), cartItem.getModifiedAt().toInstant(), cartItem.getName(), cartItem.getPrice(), cartItem.getProductId());
+			bound = ps.bind(cartItem.getId(), cartItem.getCartId(), cartItem.getProductId());
 			cqlSession.execute(bound);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -104,7 +100,7 @@ public class CASCartItemDao implements CASDao<CASCartItem> {
 			String cqlCartUpdate = CASCartItemQueries.updateById;
 			cqlSession = astraConnector.connect(keyspace);
 			ps = cqlSession.prepare(cqlCartUpdate);
-			bound = ps.bind(cartItem.getCartId(), cartItem.getCreatedAt().toInstant(), cartItem.getModifiedAt().toInstant(), cartItem.getName(), cartItem.getPrice(), cartItem.getProductId(), id);
+			bound = ps.bind(cartItem.getCartId(), cartItem.getProductId(), id);
 			cqlSession.execute(bound);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -155,7 +151,7 @@ public class CASCartItemDao implements CASDao<CASCartItem> {
 //		CASCartItem casCart = new CASCartItem(UUID.randomUUID(),UUID.randomUUID(), DateUtility.getCurrentTimeStamp(), DateUtility.getCurrentTimeStamp(), "demo product name", 22.2, UUID.randomUUID());
 //		casCartItemDao.insert(casCart);
 		
-		CASCartItem casCartUpdate = new CASCartItem(null,UUID.fromString("f000aa01-0451-4000-b000-000000000000"), DateUtility.getCurrentTimeStamp(), DateUtility.getCurrentTimeStamp(), "update name", 5.5, UUID.fromString("f000aa01-0451-4000-b000-000000000000"));
+		CASCartItem casCartUpdate = new CASCartItem(null,UUID.fromString("f000aa01-0451-4000-b000-000000000000"), UUID.fromString("f000aa01-0451-4000-b000-000000000000"));
 		casCartItemDao.update(casCartUpdate, UUID.fromString("7e69d032-4bd9-4039-aee7-c45800c90271"));
 		
 //		casCartItemDao.delete(UUID.fromString("ff695197-d3e8-4c52-8236-94db485363c8"));

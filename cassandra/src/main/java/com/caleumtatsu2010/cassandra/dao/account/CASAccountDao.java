@@ -5,7 +5,7 @@ import com.caleumtatsu2010.cassandra.connection.astra.AstraConnector;
 import com.caleumtatsu2010.cassandra.connection.cqlquery.account.CASAccountQueries;
 import com.caleumtatsu2010.cassandra.dao.CASDao;
 import com.caleumtatsu2010.cassandra.models.account.CASAccount;
-import com.caleumtatsu2010.cassandra.path.CASPath;
+import com.caleumtatsu2010.cassandra.models.database.CASPath;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.BoundStatement;
 import com.datastax.oss.driver.api.core.cql.PreparedStatement;

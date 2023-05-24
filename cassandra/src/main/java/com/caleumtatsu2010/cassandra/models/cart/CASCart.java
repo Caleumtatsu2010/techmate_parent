@@ -15,10 +15,10 @@ import java.util.UUID;
 @Setter
 public class CASCart {
 	private UUID id;
-	boolean cartIsActive;
-	private Timestamp createdAt;
-	private Timestamp modifiedAt;
 	private int quantity;
 	private double totalPrice;
-	private UUID userId;
+	private boolean cartIsActive;
+	private UUID accountId;
+	private Timestamp createdAt;
+	private Timestamp modifiedAt;
 }

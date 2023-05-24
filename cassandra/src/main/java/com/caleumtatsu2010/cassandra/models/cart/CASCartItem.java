@@ -15,9 +15,5 @@ import java.util.UUID;
 public class CASCartItem {
 	private UUID id;
 	private UUID cartId;
-	private Timestamp createdAt;
-	private Timestamp modifiedAt;
-	private String name;
-	private double price;
 	private UUID productId;
 }

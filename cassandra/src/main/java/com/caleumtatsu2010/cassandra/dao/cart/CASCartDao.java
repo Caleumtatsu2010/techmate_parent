@@ -38,12 +38,12 @@ public class CASCartDao implements CASDao<CASCart> {
 			List<Row> rows = rs.all();
 			for (Row row : rows) {
 				list.add(new CASCart(row.getUuid("id")
-						, row.getBoolean("cart_is_active")
-						, Timestamp.from(row.getInstant("created_at"))
-						, Timestamp.from(row.getInstant("modified_at"))
 						, row.getInt("quantity")
 						, row.getDouble("total_price")
-						, row.getUuid("user_id")));
+						, row.getBoolean("cart_is_active")
+						, row.getUuid("account_id")
+						, Timestamp.from(row.getInstant("created_at"))
+						, Timestamp.from(row.getInstant("modified_at"))));
 			}
 			return list;
 		} catch (Exception e) {
@@ -65,7 +65,7 @@ public class CASCartDao implements CASDao<CASCart> {
 			String cqlCartInsert = CASCartQueries.insertById;
 			cqlSession = astraConnector.connect(keyspace);
 			ps = cqlSession.prepare(cqlCartInsert);
-			bound = ps.bind(cart.getId(), cart.isCartIsActive(), cart.getCreatedAt().toInstant(), cart.getModifiedAt().toInstant(), cart.getQuantity(), cart.getTotalPrice(), cart.getUserId());
+			bound = ps.bind(cart.getId(), cart.isCartIsActive(), cart.getCreatedAt().toInstant(), cart.getModifiedAt().toInstant(), cart.getQuantity(), cart.getTotalPrice(), cart.getAccountId());
 			cqlSession.execute(bound);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -103,7 +103,7 @@ public class CASCartDao implements CASDao<CASCart> {
 			String cqlCartUpdate = CASCartQueries.updateById;
 			cqlSession = astraConnector.connect(keyspace);
 			ps = cqlSession.prepare(cqlCartUpdate);
-			bound = ps.bind(cart.isCartIsActive(), cart.getCreatedAt().toInstant(), cart.getModifiedAt().toInstant(), cart.getQuantity(), cart.getTotalPrice(), cart.getUserId(), id);
+			bound = ps.bind(cart.isCartIsActive(), cart.getCreatedAt().toInstant(), cart.getModifiedAt().toInstant(), cart.getQuantity(), cart.getTotalPrice(), cart.getAccountId(), id);
 			cqlSession.execute(bound);
 		} catch (Exception e) {
 			e.printStackTrace();

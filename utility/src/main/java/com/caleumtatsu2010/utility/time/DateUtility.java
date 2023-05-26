@@ -28,6 +28,7 @@ public class DateUtility {
         Calendar rightNow = Calendar.getInstance();
         SimpleDateFormat format = new SimpleDateFormat(format1);
         System.out.println(format.format(toSqlTimestamp(rightNow)));
+        System.out.println(DateUtility.getCurrentTimeStamp());
     }
 
     public static int getDaysInMonth(int year, int month) {

@@ -2,6 +2,7 @@ package com.caleumtatsu2010.cassandra.connection.astra;
 
 import com.caleumtatsu2010.cassandra.models.database.CASConnectInfo;
 import com.caleumtatsu2010.cassandra.models.database.CASPath;
+import com.caleumtatsu2010.cassandra.models.database.KeySpace;
 import com.caleumtatsu2010.utility.file.properties.Utils;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.ResultSet;
@@ -59,10 +60,10 @@ public class AstraConnector {
 		try (CqlSession session = CqlSession.builder()
 				.withCloudSecureConnectBundle(Paths.get(CASPath.secureConnectBundle))
 				.withAuthCredentials(casConnectInfo.getClientId(), casConnectInfo.getClientSecret())
-				.withKeyspace("cart")
+				.withKeyspace(KeySpace.techmate)
 				.build()) {
 			// Select the release_version from the system.local table:
-			ResultSet rs = session.execute("select * from cart.cart");
+			ResultSet rs = session.execute("select * from techmate.cart");
 			List<Row> rowList = rs.all();
 			//Print the results of the CQL query to the console:
 			for (int i=0;i<rowList.size();i++) {
@@ -71,7 +72,7 @@ public class AstraConnector {
 				System.out.println(rowList.get(i).getInt("quantity"));
 				System.out.println(rowList.get(i).getInstant("created_at"));
 				System.out.println(rowList.get(i).getDouble("total_price"));
-				System.out.println(rowList.get(i).getUuid("user_id"));
+				System.out.println(rowList.get(i).getUuid("account_id"));
 			}
 		}
 	}

@@ -6,6 +6,7 @@ import com.caleumtatsu2010.cassandra.connection.cqlquery.account.CASAccountQueri
 import com.caleumtatsu2010.cassandra.dao.CASDao;
 import com.caleumtatsu2010.cassandra.models.account.CASAccount;
 import com.caleumtatsu2010.cassandra.models.database.CASPath;
+import com.caleumtatsu2010.cassandra.models.database.KeySpace;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.BoundStatement;
 import com.datastax.oss.driver.api.core.cql.PreparedStatement;
@@ -42,8 +43,7 @@ public class CASAccountDao implements CASDao<CASAccount> {
 						row.getUuid("id")
 						, row.getString("username")
 						, row.getString("password")
-						, row.getString("privatekey")
-						, row.getInt("account_typeId")
+						, row.getInt("account_type_id")
 						, row.getString("account_status")));
 			}
 			return list;
@@ -87,7 +87,7 @@ public class CASAccountDao implements CASDao<CASAccount> {
 			String insertById = CASAccountQueries.insertById;
 			cqlSession = astraConnector.connect(keyspace);
 			ps = cqlSession.prepare(insertById);
-			bound = ps.bind(account.getId(), account.getUsername(), account.getPassword(), account.getPrivatekey(), account.getAccountTypeId(), account.getAccountStatus());
+			bound = ps.bind(account.getId(), account.getUsername(), account.getPassword(), account.getAccountTypeId(), account.getAccountStatus());
 			cqlSession.execute(bound);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -149,11 +149,11 @@ public class CASAccountDao implements CASDao<CASAccount> {
 	
 	public static void main(String[] args) {
 		AstraConnector astraConnector = new AstraConnector();
-		CASAccountDao CASAccountDao = new CASAccountDao(astraConnector, CASPath.user);
-		CASAccountDao.getAll();
+		CASAccountDao CASAccountDao = new CASAccountDao(astraConnector, KeySpace.techmate);
+//		CASAccountDao.getAll();
 		
-		CASAccount CASAccount = new CASAccount(UUID.randomUUID(), "test username 2", "test password 2", "privatekey 2", 20, "active");
-		CASAccountDao.insert(CASAccount);
+//		CASAccount CASAccount = new CASAccount(UUID.randomUUID(), "test username 2", "test password 2", 20, "active");
+//		CASAccountDao.insert(CASAccount);
 
 //		CASAccount CASAccountUpdate = new CASAccount(null,true, DateUtility.getCurrentTimeStamp(), DateUtility.getCurrentTimeStamp(), 55, 5.5, UUID.fromString("f000aa01-0451-4000-b000-000000000000"));
 //		CASAccountDao.update(CASAccountUpdate, UUID.fromString("ff695197-d3e8-4c52-8236-94db485363c8"));

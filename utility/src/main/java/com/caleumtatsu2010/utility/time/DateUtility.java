@@ -25,9 +25,9 @@ public class DateUtility {
     }
 
     public static void main(String[] args) {
-        Calendar rightNow = Calendar.getInstance();
-        SimpleDateFormat format = new SimpleDateFormat(format1);
-        System.out.println(format.format(toSqlTimestamp(rightNow)));
+//        Calendar rightNow = Calendar.getInstance();
+//        SimpleDateFormat format = new SimpleDateFormat(format1);
+//        System.out.println(format.format(toSqlTimestamp(rightNow)));
         System.out.println(DateUtility.getCurrentTimeStamp());
     }
 

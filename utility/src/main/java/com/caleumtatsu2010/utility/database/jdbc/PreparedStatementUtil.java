@@ -22,6 +22,8 @@ public class PreparedStatementUtil {
 			ps.setString(i, (String) arg);
 		} else if (arg instanceof Date) {
 			ps.setTimestamp(i, new Timestamp(((Date) arg).getTime()));
+		} else if (arg instanceof Timestamp) {
+			ps.setTimestamp(i, (Timestamp) arg);
 		} else if (arg instanceof Blob) {
 			ps.setBlob(i, (Blob) arg);
 		} else {

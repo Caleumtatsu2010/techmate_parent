@@ -55,27 +55,25 @@ public class CASAccountDao implements CASDao<CASAccount> {
 	
 	@Override
 	public CASAccount get(UUID id) {
-//		PreparedStatement ps = null;
-//		ResultSet rs = null;
-//		try {
-//			List<CASAccount> list = new ArrayList<>();
-//			String select = CASAccountQueries.selectAll;
-//			cqlSession = astraConnector.connect(keyspace);
-//			rs = cqlSession.execute(select);
-//			List<Row> rows = rs.all();
-//			for (Row row : rows) {
-//				list.add(new CASAccount(
-//						row.getUuid("id")
-//						, row.getString("username")
-//						, row.getString("password")
-//						, row.getString("privatekey")
-//						, row.getInt("account_typeId")
-//						, row.getString("account_status")));
-//			}
-//			return list;
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		BoundStatement bound = null;
+		try {
+			String select = CASAccountQueries.selectById;
+			cqlSession = astraConnector.connect(keyspace);
+			ps = cqlSession.prepare(select);
+			bound = ps.bind(id);
+			rs = cqlSession.execute(bound);
+			Row row = rs.one();
+			return new CASAccount(
+					row.getUuid("id")
+					, row.getString("username")
+					, row.getString("password")
+					, row.getInt("account_type_id")
+					, row.getString("account_status"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 	
@@ -151,7 +149,7 @@ public class CASAccountDao implements CASDao<CASAccount> {
 		AstraConnector astraConnector = new AstraConnector();
 		CASAccountDao CASAccountDao = new CASAccountDao(astraConnector, KeySpace.techmate);
 //		CASAccountDao.getAll();
-		
+
 //		CASAccount CASAccount = new CASAccount(UUID.randomUUID(), "test username 2", "test password 2", 20, "active");
 //		CASAccountDao.insert(CASAccount);
 

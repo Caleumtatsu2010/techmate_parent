@@ -11,12 +11,5 @@ public class CASPath {
 	
 	public static String secureConnectBundle = resourceDir + "secure-connect-techmate.zip";
 	
-	public static String techmate = "techmate";
-	
-	public static String clientId = "ClientId";
-	public static String clientSecret = "ClientSecret";
-	public static String role = "Role";
-	public static String token = "Token";
-	
 	
 }

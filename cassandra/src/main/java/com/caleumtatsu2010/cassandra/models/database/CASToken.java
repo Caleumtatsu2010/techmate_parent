@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Setter
 @Getter
-public class CASConnectInfo {
+public class CASToken {
     private String ClientId;
     private String ClientSecret;
     private String Role;

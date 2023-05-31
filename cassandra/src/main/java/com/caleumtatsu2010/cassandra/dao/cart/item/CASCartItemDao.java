@@ -4,14 +4,14 @@ import com.caleumtatsu2010.cassandra.connection.astra.AstraConnector;
 import com.caleumtatsu2010.cassandra.connection.cqlquery.cart.item.CASCartItemQueries;
 import com.caleumtatsu2010.cassandra.dao.CASDao;
 import com.caleumtatsu2010.cassandra.models.cart.CASCartItem;
-import com.caleumtatsu2010.utility.time.DateUtility;
+import com.caleumtatsu2010.cassandra.models.database.CASPath;
+import com.caleumtatsu2010.cassandra.models.database.astra.AstraDatabases;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.BoundStatement;
 import com.datastax.oss.driver.api.core.cql.PreparedStatement;
 import com.datastax.oss.driver.api.core.cql.ResultSet;
 import com.datastax.oss.driver.api.core.cql.Row;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -144,7 +144,7 @@ public class CASCartItemDao implements CASDao<CASCartItem> {
 	}
 	
 	public static void main(String[] args) {
-		AstraConnector astraConnector = new AstraConnector();
+		AstraConnector astraConnector = new AstraConnector(CASPath.astraToken, AstraDatabases.techmate);
 		CASCartItemDao casCartItemDao = new CASCartItemDao(astraConnector, "cart");
 //		casCartItemDao.getAll();
 		

@@ -5,7 +5,8 @@ import com.caleumtatsu2010.cassandra.connection.cqlquery.cart.CASCartQueries;
 import com.caleumtatsu2010.cassandra.dao.CASDao;
 import com.caleumtatsu2010.cassandra.models.cart.CASCart;
 import com.caleumtatsu2010.cassandra.models.database.CASPath;
-import com.caleumtatsu2010.cassandra.models.database.KeySpace;
+import com.caleumtatsu2010.cassandra.models.database.astra.AstraDatabases;
+import com.caleumtatsu2010.cassandra.models.database.astra.KeySpace;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.BoundStatement;
 import com.datastax.oss.driver.api.core.cql.PreparedStatement;
@@ -128,7 +129,7 @@ public class CASCartDao implements CASDao<CASCart> {
 	}
 	
 	public static void main(String[] args) {
-		AstraConnector astraConnector = new AstraConnector();
+		AstraConnector astraConnector = new AstraConnector(CASPath.astraToken, AstraDatabases.techmate);
 		CASCartDao casCartDao = new CASCartDao(astraConnector, KeySpace.techmate);
 		casCartDao.getAll();
 		

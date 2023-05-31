@@ -1,8 +1,10 @@
 package com.caleumtatsu2010.cassandra.connection.astra;
 
-import com.caleumtatsu2010.cassandra.models.database.CASConnectInfo;
+import com.caleumtatsu2010.cassandra.models.database.CASToken;
 import com.caleumtatsu2010.cassandra.models.database.CASPath;
-import com.caleumtatsu2010.cassandra.models.database.KeySpace;
+import com.caleumtatsu2010.cassandra.models.database.CASTokenName;
+import com.caleumtatsu2010.cassandra.models.database.astra.AstraDatabases;
+import com.caleumtatsu2010.cassandra.models.database.astra.KeySpace;
 import com.caleumtatsu2010.utility.file.properties.Utils;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.ResultSet;
@@ -15,26 +17,26 @@ import java.util.Properties;
 
 public class AstraConnector {
 	
-	private CASConnectInfo casConnectInfo = null;
+	private CASToken casToken = null;
 	
-	public AstraConnector() {
-		this.casConnectInfo = readCASConnectInfo();
+	public AstraConnector(String astraTokenPath, String databaseName) {
+		this.casToken = readCASToken(astraTokenPath,databaseName);
 	}
 	
-	public static CASConnectInfo readCASConnectInfo() {
-		Properties prop = Utils.loadProp(CASPath.astraToken);
-		String clientId = prop.getProperty(CASPath.clientId);
-		String clientSecret = prop.getProperty(CASPath.clientSecret);
-		String role = prop.getProperty(CASPath.role);
-		String token = prop.getProperty(CASPath.token);
-		return new CASConnectInfo(clientId, clientSecret, role, token);
+	public static CASToken readCASToken(String astraTokenPath,String databaseName) {
+		Properties prop = Utils.loadProp(astraTokenPath);
+		String clientId = prop.getProperty(databaseName + "." + CASTokenName.clientId);
+		String clientSecret = prop.getProperty(databaseName + "." + CASTokenName.clientSecret);
+		String role = prop.getProperty(databaseName + "." + CASTokenName.role);
+		String token = prop.getProperty(databaseName + "." + CASTokenName.token);
+		return new CASToken(clientId, clientSecret, role, token);
 	}
 	
 	public CqlSession connect(String keyspace)  {
 		// Create the CqlSession object:
 		CqlSession session = CqlSession.builder()
 				.withCloudSecureConnectBundle(Paths.get(CASPath.secureConnectBundle))
-				.withAuthCredentials(casConnectInfo.getClientId(), casConnectInfo.getClientSecret())
+				.withAuthCredentials(casToken.getClientId(), casToken.getClientSecret())
 				.withKeyspace(keyspace)
 				.build();
 		System.out.println("New session is oppened! ");
@@ -55,7 +57,8 @@ public class AstraConnector {
 	public static void main(String[] args) {
 //		CqlSession session = AstraConnector.connect("cart");
 //		System.out.println("Connect successful: " + session.toString());
-		CASConnectInfo casConnectInfo = readCASConnectInfo();
+//		AstraConnector astraConnector = new AstraConnector("techmate");
+		CASToken casConnectInfo = readCASToken(CASPath.astraToken, AstraDatabases.techmate);
 		// Create the CqlSession object:
 		try (CqlSession session = CqlSession.builder()
 				.withCloudSecureConnectBundle(Paths.get(CASPath.secureConnectBundle))

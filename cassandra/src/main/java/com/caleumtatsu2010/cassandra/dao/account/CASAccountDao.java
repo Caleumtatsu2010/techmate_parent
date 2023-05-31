@@ -49,6 +49,8 @@ public class CASAccountDao implements CASDao<CASAccount> {
 			return list;
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			astraConnector.disconnect(cqlSession);
 		}
 		return null;
 	}
@@ -73,6 +75,8 @@ public class CASAccountDao implements CASDao<CASAccount> {
 					, row.getString("account_status"));
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			astraConnector.disconnect(cqlSession);
 		}
 		return null;
 	}
@@ -89,6 +93,8 @@ public class CASAccountDao implements CASDao<CASAccount> {
 			cqlSession.execute(bound);
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			astraConnector.disconnect(cqlSession);
 		}
 	}
 
@@ -114,20 +120,21 @@ public class CASAccountDao implements CASDao<CASAccount> {
 //            ConnectionUtil.closeAll(connection, ps, rs);
 //        }
 	
-	
 	@Override
-	public void update(CASAccount cart, UUID id) {
-//		PreparedStatement ps = null;
-//		BoundStatement bound = null;
-//		try {
-//			String cqlCartUpdate = CASAccountQueries.updateById;
-//			cqlSession = astraConnector.connect(keyspace);
-//			ps = cqlSession.prepare(cqlCartUpdate);
-//			bound = ps.bind(cart.isCartIsActive(), cart.getCreatedAt().toInstant(), cart.getModifiedAt().toInstant(), cart.getQuantity(), cart.getTotalPrice(), cart.getUserId(), id);
-//			cqlSession.execute(bound);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+	public void update(CASAccount casAccount, UUID id) {
+		PreparedStatement ps = null;
+		BoundStatement bound = null;
+		try {
+			String cqlCartUpdate = CASAccountQueries.updateById;
+			cqlSession = astraConnector.connect(keyspace);
+			ps = cqlSession.prepare(cqlCartUpdate);
+			bound = ps.bind(casAccount.getUsername(), casAccount.getPassword(), casAccount.getAccountTypeId(), casAccount.getAccountStatus(), id);
+			cqlSession.execute(bound);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			astraConnector.disconnect(cqlSession);
+		}
 	}
 	
 	@Override
@@ -142,6 +149,8 @@ public class CASAccountDao implements CASDao<CASAccount> {
 			cqlSession.execute(bound);
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			astraConnector.disconnect(cqlSession);
 		}
 	}
 	
@@ -152,11 +161,12 @@ public class CASAccountDao implements CASDao<CASAccount> {
 
 //		CASAccount CASAccount = new CASAccount(UUID.randomUUID(), "test username 2", "test password 2", 20, "active");
 //		CASAccountDao.insert(CASAccount);
-
-//		CASAccount CASAccountUpdate = new CASAccount(null,true, DateUtility.getCurrentTimeStamp(), DateUtility.getCurrentTimeStamp(), 55, 5.5, UUID.fromString("f000aa01-0451-4000-b000-000000000000"));
-//		CASAccountDao.update(CASAccountUpdate, UUID.fromString("ff695197-d3e8-4c52-8236-94db485363c8"));
 		
-		CASAccountDao.delete(UUID.fromString("b77b3b66-94de-11ed-a1eb-0242ac120002"));
+		CASAccount CASAccountUpdate = new CASAccount(null, "client",
+				"90779f752c9a610d3121763650a7f9c1d43dccad9faafe3a34d86f28d0bae25b32335b24a7c31a026f2f6061181e16a0ef7ef18d178e31a4c15e0b2a06c58c1b",
+				2, "active");
+		CASAccountDao.update(CASAccountUpdate, UUID.fromString("f07fd891-7e1a-441a-9885-0df9cbbdce22"));
+//		CASAccountDao.delete(UUID.fromString("b77b3b66-94de-11ed-a1eb-0242ac120002"));
 		
 	}
 }

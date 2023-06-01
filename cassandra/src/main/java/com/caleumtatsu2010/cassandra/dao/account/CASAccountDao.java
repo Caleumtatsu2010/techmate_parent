@@ -2,7 +2,7 @@ package com.caleumtatsu2010.cassandra.dao.account;
 
 import com.caleumtatsu2010.cassandra.connection.astra.AstraConnector;
 
-import com.caleumtatsu2010.cassandra.connection.cqlquery.account.CASAccountQueries;
+import com.caleumtatsu2010.cassandra.models.account.CASAccountQueries;
 import com.caleumtatsu2010.cassandra.dao.CASDao;
 import com.caleumtatsu2010.cassandra.models.account.CASAccount;
 import com.caleumtatsu2010.cassandra.models.database.CASPath;

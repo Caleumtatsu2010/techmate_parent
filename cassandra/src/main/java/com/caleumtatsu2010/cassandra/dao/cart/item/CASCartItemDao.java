@@ -1,9 +1,9 @@
 package com.caleumtatsu2010.cassandra.dao.cart.item;
 
 import com.caleumtatsu2010.cassandra.connection.astra.AstraConnector;
-import com.caleumtatsu2010.cassandra.connection.cqlquery.cart.item.CASCartItemQueries;
+import com.caleumtatsu2010.cassandra.models.cart.item.CASCartItemQueries;
 import com.caleumtatsu2010.cassandra.dao.CASDao;
-import com.caleumtatsu2010.cassandra.models.cart.CASCartItem;
+import com.caleumtatsu2010.cassandra.models.cart.item.CASCartItem;
 import com.caleumtatsu2010.cassandra.models.database.CASPath;
 import com.caleumtatsu2010.cassandra.models.database.astra.AstraDatabases;
 import com.datastax.oss.driver.api.core.CqlSession;

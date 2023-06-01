@@ -1,6 +1,5 @@
 package com.caleumtatsu2010.utility.database.connection;
 
-import com.caleumtatsu2010.utility.database.DatabasePath;
 import com.caleumtatsu2010.utility.file.properties.Utils;
 import com.caleumtatsu2010.utility.object.reflect.Invoke;
 
@@ -13,16 +12,14 @@ public class ConnectionUtil {
 	
 	private ConnectInfo connInfo = null;
 	
-	private static String DbPropPath = DatabasePath.databaseProperties;
-	
 	private static String JDBC_URL = "jdbc:";
 	private static String DBL_SLASH = "://";
 	private static String DBL_DOT = ":";
 	private static String SLASH = "/";
 	private static String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
 	
-	public ConnectionUtil(String dbName) {
-		this.connInfo = readConnectionInfo(dbName);
+	public ConnectionUtil(String dbProp, String dbName) {
+		this.connInfo = readConnectionInfo(dbProp, dbName);
 	}
 	
 	public Connection getConn() {
@@ -65,9 +62,9 @@ public class ConnectionUtil {
 		}
 	}
 	
-	public static ConnectInfo readConnectionInfo(String dbName) {
+	public static ConnectInfo readConnectionInfo(String dbProp, String dbName) {
 		ConnectInfo connectInfo = new ConnectInfo();
-		Properties prop = Utils.loadProp(Utils.readDatabasePath(DbPropPath, dbName));
+		Properties prop = Utils.loadProp(Utils.readDatabasePath(dbProp, dbName));
 		List<String> attrNames = Invoke.getAllAttributeName(connectInfo);
 		for (int i = 0; i < attrNames.size(); i++) {
 			Invoke.invokeSetter(connectInfo, attrNames.get(i), prop.getProperty(attrNames.get(i)));

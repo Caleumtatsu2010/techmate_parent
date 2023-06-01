@@ -1,8 +1,8 @@
 package com.caleumtatsu2010.cassandra.connection.astra;
 
-import com.caleumtatsu2010.cassandra.models.database.CASToken;
+import com.caleumtatsu2010.cassandra.models.database.astra.CASToken;
 import com.caleumtatsu2010.cassandra.models.database.CASPath;
-import com.caleumtatsu2010.cassandra.models.database.CASTokenName;
+import com.caleumtatsu2010.cassandra.models.database.astra.CASTokenName;
 import com.caleumtatsu2010.cassandra.models.database.astra.AstraDatabases;
 import com.caleumtatsu2010.cassandra.models.database.astra.KeySpace;
 import com.caleumtatsu2010.utility.file.properties.Utils;

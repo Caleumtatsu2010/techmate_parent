@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.utility.common;
 
-public class StringValidate {
+public class StringValidator {
     public static String NulltoBlank(String str) {
         if (str == null) {
             str = "";
@@ -18,7 +18,7 @@ public class StringValidate {
     public static int safeParseInt(String value) {
         int num = 0;
         try {
-            num = Integer.parseInt(StringValidate.NulltoZero(value));
+            num = Integer.parseInt(StringValidator.NulltoZero(value));
         } catch (NumberFormatException e) {
             num = 0;
         }
@@ -28,7 +28,7 @@ public class StringValidate {
     public static double safeParseDouble(String value) {
         double num = 0.0;
         try {
-            num = Double.parseDouble(StringValidate.NulltoZero(value));
+            num = Double.parseDouble(StringValidator.NulltoZero(value));
         } catch (NumberFormatException e) {
             num = 0.0;
         }

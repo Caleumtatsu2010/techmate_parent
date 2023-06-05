@@ -1,7 +1,7 @@
 package com.caleumtatsu2010.utility.database.connection;
 
 import com.caleumtatsu2010.utility.file.properties.Utils;
-import com.caleumtatsu2010.utility.object.reflect.Invoke;
+import com.caleumtatsu2010.utility.object.reflect.ObjectUtilityInvoker;
 
 import java.sql.*;
 import java.util.List;
@@ -65,9 +65,9 @@ public class ConnectionUtil {
 	public static ConnectInfo readConnectionInfo(String dbProp, String dbName) {
 		ConnectInfo connectInfo = new ConnectInfo();
 		Properties prop = Utils.loadProp(Utils.readDatabasePath(dbProp, dbName));
-		List<String> attrNames = Invoke.getAllAttributeName(connectInfo);
+		List<String> attrNames = ObjectUtilityInvoker.getAllAttributeName(connectInfo);
 		for (int i = 0; i < attrNames.size(); i++) {
-			Invoke.invokeSetter(connectInfo, attrNames.get(i), prop.getProperty(attrNames.get(i)));
+			ObjectUtilityInvoker.invokeSetter(connectInfo, attrNames.get(i), prop.getProperty(attrNames.get(i)));
 		}
 		return connectInfo;
 //		String host = prop.getProperty("host");

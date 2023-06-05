@@ -8,8 +8,9 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.UUID;
 
-public class Invoke {
+public class ObjectUtilityInvoker {
 
 
 //    public static List<Object> invokeGetters(Object p) {
@@ -55,6 +56,62 @@ public class Invoke {
 		return f;
 	}
 	
+	public static void invokeSetMethod(Object obj, String methodName, Object methodParam) {
+		try {
+			Method method = obj.getClass().getDeclaredMethod(methodName, methodParam.getClass());
+			try {
+				method.invoke(obj, methodParam);
+			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+				e.printStackTrace();
+			}
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void invokeSetMethod(Object object, String methodName, Object methodParam1, Object methodParam2) {
+		try {
+			Method method = object.getClass().getDeclaredMethod(methodName, methodParam1.getClass(), methodParam2.getClass());
+			try {
+				method.invoke(object, methodParam1, methodParam2);
+			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+				e.printStackTrace();
+			}
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static Object invokeGetMethod(Object obj, String methodName, Object methodParam) {
+		Object methodReturn = null;
+		try {
+			Method method = obj.getClass().getDeclaredMethod(methodName);
+			try {
+				methodReturn = method.invoke(obj, methodParam);
+			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+				e.printStackTrace();
+			}
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		}
+		return methodReturn;
+	}
+	
+	public static Object invokeGetMethod(Object obj, String methodName) {
+		Object methodReturn = null;
+		try {
+			Method method = obj.getClass().getDeclaredMethod(methodName);
+			try {
+				methodReturn = method.invoke(obj);
+			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+				e.printStackTrace();
+			}
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		}
+		return methodReturn;
+	}
+	
 	public static List<String> getAllAttributeName(Object object) {
 		List<String> attrNames = new ArrayList<>();
 		Field[] attributes = object.getClass().getDeclaredFields();
@@ -76,7 +133,7 @@ public class Invoke {
 	}
 	
 	public static void main(String[] args) {
-		Calendar cal = Calendar.getInstance();
+//		Calendar cal = Calendar.getInstance();
 //        Cart cart = new Cart(2, "userid", 10, DateUtility.toSqlTimestamp(cal), DateUtility.toSqlTimestamp(cal));
 //
 //        System.out.println(invokeGetter(cart, "id"));
@@ -84,6 +141,8 @@ public class Invoke {
 //        System.out.println(invokeGetter(cart, "total"));
 //        System.out.println(invokeGetter(cart, "createdAt"));
 //        System.out.println(invokeGetter(cart, "modifiedAt"));
+		
+	
 	}
 	
 }

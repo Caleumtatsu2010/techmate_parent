@@ -8,6 +8,7 @@ import com.caleumtatsu2010.cassandra.models.account.CASAccount;
 import com.caleumtatsu2010.cassandra.models.database.CASPath;
 import com.caleumtatsu2010.cassandra.models.database.astra.AstraDatabases;
 import com.caleumtatsu2010.cassandra.models.database.astra.KeySpace;
+import com.caleumtatsu2010.utility.object.reflect.ObjectUtilityInvoker;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.BoundStatement;
 import com.datastax.oss.driver.api.core.cql.PreparedStatement;
@@ -158,15 +159,20 @@ public class CASAccountDao implements CASDao<CASAccount> {
 	public static void main(String[] args) {
 		AstraConnector astraConnector = new AstraConnector(CASPath.astraToken, AstraDatabases.techmate);
 		CASAccountDao CASAccountDao = new CASAccountDao(astraConnector, KeySpace.techmate);
+		
+		System.out.println(CASAccountDao.getClass());
+		CASAccount casAccount = new CASAccount(UUID.randomUUID(), null, null, 0, null);
+		ObjectUtilityInvoker.invokeSetMethod(CASAccountDao, "update", casAccount, casAccount.getId());
+		
 //		CASAccountDao.getAll();
 
 //		CASAccount CASAccount = new CASAccount(UUID.randomUUID(), "test username 2", "test password 2", 20, "active");
 //		CASAccountDao.insert(CASAccount);
 		
-		CASAccount CASAccountUpdate = new CASAccount(null, "client",
-				"90779f752c9a610d3121763650a7f9c1d43dccad9faafe3a34d86f28d0bae25b32335b24a7c31a026f2f6061181e16a0ef7ef18d178e31a4c15e0b2a06c58c1b",
-				2, "active");
-		CASAccountDao.update(CASAccountUpdate, UUID.fromString("f07fd891-7e1a-441a-9885-0df9cbbdce22"));
+//		CASAccount CASAccountUpdate = new CASAccount(null, "client",
+//				"90779f752c9a610d3121763650a7f9c1d43dccad9faafe3a34d86f28d0bae25b32335b24a7c31a026f2f6061181e16a0ef7ef18d178e31a4c15e0b2a06c58c1b",
+//				2, "active");
+//		CASAccountDao.update(CASAccountUpdate, UUID.fromString("f07fd891-7e1a-441a-9885-0df9cbbdce22"));
 //		CASAccountDao.delete(UUID.fromString("b77b3b66-94de-11ed-a1eb-0242ac120002"));
 		
 	}

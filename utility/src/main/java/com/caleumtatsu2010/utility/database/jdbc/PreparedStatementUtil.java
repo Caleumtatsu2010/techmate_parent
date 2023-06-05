@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.utility.database.jdbc;
 
-import com.caleumtatsu2010.utility.object.reflect.Invoke;
+import com.caleumtatsu2010.utility.object.reflect.ObjectUtilityInvoker;
 
 import java.sql.*;
 import java.util.List;
@@ -33,7 +33,7 @@ public class PreparedStatementUtil {
 	
 	public static void mapPreparedStatementFieldNames(PreparedStatement ps, Object obj, List<String> attrNames) throws SQLException {
 		for (int i = 0; i < attrNames.size(); i++) {
-			mapParam(ps, Invoke.invokeGetter(obj, attrNames.get(i)), i + 1);
+			mapParam(ps, ObjectUtilityInvoker.invokeGetter(obj, attrNames.get(i)), i + 1);
 		}
 	}
 	
@@ -55,7 +55,7 @@ public class PreparedStatementUtil {
 	}
 	
 	public static void mapPreparedStatementToObjectType(PreparedStatement ps, Object obj, int queryType) throws SQLException {
-		List<String> attrNames = Invoke.getAllAttributeName(obj);
+		List<String> attrNames = ObjectUtilityInvoker.getAllAttributeName(obj);
 		mapPreparedStatementFieldNamesType(ps, obj, attrNames, queryType);
 	}
 	

@@ -5,6 +5,7 @@
     <mapping directory="$PROJECT_DIR$/cassandra" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/embedded" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/techmate_core" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/techmate_session" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/techmate_test" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/utility" vcs="Git" />
   </component>

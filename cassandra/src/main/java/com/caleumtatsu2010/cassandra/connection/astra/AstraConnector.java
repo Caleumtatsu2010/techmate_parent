@@ -5,7 +5,7 @@ import com.caleumtatsu2010.cassandra.models.database.CASPath;
 import com.caleumtatsu2010.cassandra.models.database.astra.CASTokenName;
 import com.caleumtatsu2010.cassandra.models.database.astra.AstraDatabases;
 import com.caleumtatsu2010.cassandra.models.database.astra.KeySpace;
-import com.caleumtatsu2010.utility.file.properties.Utils;
+import com.caleumtatsu2010.utility.file.properties.PropsUtil;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.ResultSet;
 import com.datastax.oss.driver.api.core.cql.Row;
@@ -24,7 +24,7 @@ public class AstraConnector {
 	}
 	
 	public static CASToken readCASToken(String astraTokenPath,String databaseName) {
-		Properties prop = Utils.loadProp(astraTokenPath);
+		Properties prop = PropsUtil.loadProp(astraTokenPath);
 		String clientId = prop.getProperty(databaseName + "." + CASTokenName.clientId);
 		String clientSecret = prop.getProperty(databaseName + "." + CASTokenName.clientSecret);
 		String role = prop.getProperty(databaseName + "." + CASTokenName.role);

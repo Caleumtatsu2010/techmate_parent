@@ -3,7 +3,7 @@ package com.caleumtatsu2010.utility.file.properties;
 
 import java.io.*;
 
-public class Utils {
+public class PropsUtil {
 	
 	public static java.util.Properties loadProp(String filepath) {
 		java.util.Properties prop = null;

@@ -23,22 +23,15 @@
         <module>cassandra</module>
         <module>utility</module>
         <module>embedded</module>
+        <module>techmate_test</module>
+        <module>techmate_session</module>
     </modules>
 
     <dependencies>
-
-
         <!--utility module-->
         <dependency>
             <groupId>com.caleumtatsu2010</groupId>
             <artifactId>utility</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <!--cassandra module-->
-        <dependency>
-            <groupId>com.caleumtatsu2010</groupId>
-            <artifactId>cassandra</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

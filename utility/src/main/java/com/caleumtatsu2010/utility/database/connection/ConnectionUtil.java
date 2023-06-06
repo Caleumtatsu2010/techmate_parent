@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.utility.database.connection;
 
-import com.caleumtatsu2010.utility.file.properties.Utils;
+import com.caleumtatsu2010.utility.file.properties.PropsUtil;
 import com.caleumtatsu2010.utility.object.reflect.ObjectUtilityInvoker;
 
 import java.sql.*;
@@ -64,7 +64,7 @@ public class ConnectionUtil {
 	
 	public static ConnectInfo readConnectionInfo(String dbProp, String dbName) {
 		ConnectInfo connectInfo = new ConnectInfo();
-		Properties prop = Utils.loadProp(Utils.readDatabasePath(dbProp, dbName));
+		Properties prop = PropsUtil.loadProp(PropsUtil.readDatabasePath(dbProp, dbName));
 		List<String> attrNames = ObjectUtilityInvoker.getAllAttributeName(connectInfo);
 		for (int i = 0; i < attrNames.size(); i++) {
 			ObjectUtilityInvoker.invokeSetter(connectInfo, attrNames.get(i), prop.getProperty(attrNames.get(i)));

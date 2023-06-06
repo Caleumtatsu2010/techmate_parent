@@ -7,17 +7,15 @@ package com.caleumtatsu2010.utility.time;
 
 import java.sql.Time;
 import java.sql.Timestamp;
-import java.text.DateFormat;
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class DateUtility {
+public class DateUtil {
 
     private static String format1 = "yyyy-MM-dd HH:mm:ss";
 
-    private DateUtility() {
+    private DateUtil() {
     }
 
     public static int compareTo(Date date1, Date date2) {
@@ -28,7 +26,7 @@ public class DateUtility {
 //        Calendar rightNow = Calendar.getInstance();
 //        SimpleDateFormat format = new SimpleDateFormat(format1);
 //        System.out.println(format.format(toSqlTimestamp(rightNow)));
-        System.out.println(DateUtility.getCurrentTimeStamp());
+        System.out.println(DateUtil.getCurrTimestamp());
     }
 
     public static int getDaysInMonth(int year, int month) {
@@ -45,18 +43,14 @@ public class DateUtility {
         return tempDate.get(5);
     }
 
-    /**
-     * @deprecated
-     */
+
     public static int getLastDayOfMonth(int year, int month) {
         Calendar tempDate = Calendar.getInstance();
         tempDate.set(year, month - 1, 15);
         return getLastDayOfMonth(tempDate);
     }
 
-    /**
-     * @deprecated
-     */
+
     public static int getLastDayOfMonth(Calendar date) {
         Calendar tempDate = (Calendar) date.clone();
         tempDate.add(2, 1);
@@ -128,7 +122,7 @@ public class DateUtility {
         return sqlTimestamp;
     }
     
-    public static Timestamp getCurrentTimeStamp() {
+    public static Timestamp getCurrTimestamp() {
         Date date = new Date();
         Timestamp timestamp = new Timestamp(date.getTime());
         return timestamp;

@@ -8,7 +8,6 @@ import com.caleumtatsu2010.cassandra.models.account.CASAccount;
 import com.caleumtatsu2010.cassandra.models.database.CASPath;
 import com.caleumtatsu2010.cassandra.models.database.astra.AstraDatabases;
 import com.caleumtatsu2010.cassandra.models.database.astra.KeySpace;
-import com.caleumtatsu2010.utility.object.reflect.ObjectUtilityInvoker;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.BoundStatement;
 import com.datastax.oss.driver.api.core.cql.PreparedStatement;
@@ -162,7 +161,7 @@ public class CASAccountDao implements CASDao<CASAccount> {
 		
 		System.out.println(CASAccountDao.getClass());
 		CASAccount casAccount = new CASAccount(UUID.randomUUID(), null, null, 0, null);
-		ObjectUtilityInvoker.invokeSetMethod(CASAccountDao, "update", casAccount, casAccount.getId());
+//		ObjectUtilityInvoker.invokeSetMethod(CASAccountDao, "update", casAccount, casAccount.getId());
 		
 //		CASAccountDao.getAll();
 

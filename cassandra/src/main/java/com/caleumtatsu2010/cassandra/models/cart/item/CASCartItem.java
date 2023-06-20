@@ -16,4 +16,5 @@ public class CASCartItem {
 	private UUID id;
 	private UUID cartId;
 	private int productId;
+	private int num;
 }

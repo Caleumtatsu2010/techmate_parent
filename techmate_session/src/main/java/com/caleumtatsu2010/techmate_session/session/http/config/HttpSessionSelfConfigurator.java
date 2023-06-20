@@ -2,29 +2,26 @@ package com.caleumtatsu2010.techmate_session.session.http.config;
 
 import com.caleumtatsu2010.utility.common.StringValidator;
 import com.caleumtatsu2010.utility.file.properties.PropsUtil;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.Properties;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
-@Setter
 public class HttpSessionSelfConfigurator {
 	
-	private SessionConfig httpSessionConfig;
+	private SessionConfig sessionConfig;
 	
 	public HttpSessionSelfConfigurator(String sessionConfigPath) {
-		this.httpSessionConfig = readSessionConfig(sessionConfigPath, "maxInactiveInterval");
+		this.sessionConfig = readSessionConfig(sessionConfigPath, "maxInactiveInterval");
 	}
 	
-	public static SessionConfig readSessionConfig(String sessionConfigPath, String propName) {
+	public SessionConfig readSessionConfig(String sessionConfigPath, String propName) {
 		Properties prop = PropsUtil.loadProp(sessionConfigPath);
 		int maxInactiveInterval = StringValidator.safeParseInt(prop.getProperty(propName));
 		return new SessionConfig(maxInactiveInterval);
 	}
 	
+	public static void main(String[] args) {
+		HttpSessionSelfConfigurator httpSessionSelfConfigurator = new HttpSessionSelfConfigurator(SessionConfigPath.path);
+	}
 }

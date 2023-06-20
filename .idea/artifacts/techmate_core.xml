@@ -7,6 +7,7 @@
           <element id="module-output" name="techmate_core" />
           <element id="module-output" name="utility" />
           <element id="module-output" name="cassandra" />
+          <element id="module-output" name="techmate_session" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.28" />

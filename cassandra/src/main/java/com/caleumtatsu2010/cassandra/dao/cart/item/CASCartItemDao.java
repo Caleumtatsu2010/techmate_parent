@@ -40,7 +40,7 @@ public class CASCartItemDao implements CASDao<CASCartItem> {
 			for (Row row : rows) {
 				list.add(new CASCartItem(row.getUuid("id")
 						, row.getUuid("cart_id")
-						, row.getUuid("product_id")));
+						, row.getInt("product_id")));
 			}
 			return list;
 		} catch (Exception e) {
@@ -151,8 +151,8 @@ public class CASCartItemDao implements CASDao<CASCartItem> {
 //		CASCartItem casCart = new CASCartItem(UUID.randomUUID(),UUID.randomUUID(), DateUtility.getCurrentTimeStamp(), DateUtility.getCurrentTimeStamp(), "demo product name", 22.2, UUID.randomUUID());
 //		casCartItemDao.insert(casCart);
 		
-		CASCartItem casCartUpdate = new CASCartItem(null,UUID.fromString("f000aa01-0451-4000-b000-000000000000"), UUID.fromString("f000aa01-0451-4000-b000-000000000000"));
-		casCartItemDao.update(casCartUpdate, UUID.fromString("7e69d032-4bd9-4039-aee7-c45800c90271"));
+//		CASCartItem casCartUpdate = new CASCartItem(null,UUID.fromString("f000aa01-0451-4000-b000-000000000000"), UUID.fromString("f000aa01-0451-4000-b000-000000000000"));
+//		casCartItemDao.update(casCartUpdate, UUID.fromString("7e69d032-4bd9-4039-aee7-c45800c90271"));
 		
 //		casCartItemDao.delete(UUID.fromString("ff695197-d3e8-4c52-8236-94db485363c8"));
 		

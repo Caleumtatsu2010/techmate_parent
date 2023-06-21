@@ -40,7 +40,9 @@ public class CASCartItemDao implements CASDao<CASCartItem> {
 			for (Row row : rows) {
 				list.add(new CASCartItem(row.getUuid("id")
 						, row.getUuid("cart_id")
-						, row.getInt("product_id")));
+						, row.getInt("product_id")
+						, row.getInt("num")
+						));
 			}
 			return list;
 		} catch (Exception e) {
@@ -62,7 +64,7 @@ public class CASCartItemDao implements CASDao<CASCartItem> {
 			String cqlCartInsert = CASCartItemQueries.insertById;
 			cqlSession = astraConnector.connect(keyspace);
 			ps = cqlSession.prepare(cqlCartInsert);
-			bound = ps.bind(cartItem.getId(), cartItem.getCartId(), cartItem.getProductId());
+			bound = ps.bind(cartItem.getId(), cartItem.getCartId(), cartItem.getProductId(), cartItem.getNum());
 			cqlSession.execute(bound);
 		} catch (Exception e) {
 			e.printStackTrace();

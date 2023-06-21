@@ -153,8 +153,7 @@ public class CASAccountDao implements CASDao<CASAccount> {
 //		CASAccount casAccount = new CASAccount(UUID.randomUUID(), null, null, 0, null);
 //		ObjectUtilityInvoker.invokeSetMethod(CASAccountDao, "update", casAccount, casAccount.getId());
 		
-		CASAccountDao.getAll();
-		CASAccountDao.getAll();
+//		CASAccountDao.getAll();
 		astraConnector.disconnect();
 //		CASAccount CASAccount = new CASAccount(UUID.randomUUID(), "test username 2", "test password 2", 20, "active");
 //		CASAccountDao.insert(CASAccount);

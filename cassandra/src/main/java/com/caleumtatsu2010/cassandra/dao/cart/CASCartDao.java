@@ -131,7 +131,7 @@ public class CASCartDao implements CASDao<CASCart> {
 	public static void main(String[] args) {
 		AstraConnector astraConnector = new AstraConnector(CASPath.astraToken, AstraDatabases.techmate);
 		CASCartDao casCartDao = new CASCartDao(astraConnector, KeySpace.techmate);
-		casCartDao.getAll();
+//		casCartDao.getAll();
 		
 //		CASCart casCart = new CASCart(UUID.randomUUID(),false, DateUtility.getCurrentTimeStamp(), DateUtility.getCurrentTimeStamp(), 10, 1.2, UUID.randomUUID());
 //		casCartDao.insert(casCart);

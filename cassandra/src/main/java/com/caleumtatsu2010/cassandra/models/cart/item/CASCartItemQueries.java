@@ -2,7 +2,6 @@ package com.caleumtatsu2010.cassandra.models.cart.item;
 
 public class CASCartItemQueries {
 	
-	
 	public static String selectAll = "select * from techmate.cart_item;";
 	
 	public static String selectById = "select * from techmate.cart_item where id = ?;";

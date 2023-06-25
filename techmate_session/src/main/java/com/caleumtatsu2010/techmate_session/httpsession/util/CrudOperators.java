@@ -1,0 +1,16 @@
+package com.caleumtatsu2010.techmate_session.httpsession.util;
+
+import com.caleumtatsu2010.utility.object.pojo.reflect.ObjectUtilityInvoker;
+
+public class CrudOperators {
+	
+	public static void CrudOperatorsForAstraDb(Object objectDao, Object param, Object uuid) {
+		Object methodReturn = ObjectUtilityInvoker.invokeGetMethod(objectDao, "get", uuid);
+		if (methodReturn != null) {
+			ObjectUtilityInvoker.invokeSetMethod(objectDao, "update", param, uuid);
+		} else {
+			ObjectUtilityInvoker.invokeSetMethod(objectDao, "insert", param);
+		}
+	}
+	
+}

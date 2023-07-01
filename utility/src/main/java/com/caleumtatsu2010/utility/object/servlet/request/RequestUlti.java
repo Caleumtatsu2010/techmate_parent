@@ -4,12 +4,12 @@ import com.caleumtatsu2010.utility.common.StringValidator;
 import com.caleumtatsu2010.utility.object.pojo.reflect.ObjectUtilityInvoker;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
+import java.util.*;
 
 public class RequestUlti {
 	
 	
-	public static void mapRequestToObjectFieldNames(HttpServletRequest request, Object obj) {
+	public static void mapRequestParamToObjByField(HttpServletRequest request, Object obj) {
 		try {
 			List<String> attrNames = ObjectUtilityInvoker.getAllAttributeName(obj);
 			List<String> attrTypes = ObjectUtilityInvoker.getAllAttributeType(obj);
@@ -33,5 +33,17 @@ public class RequestUlti {
 			e.printStackTrace();
 		}
 	}
+	
+	public static Map<String, String> getAllParameters(HttpServletRequest request){
+		Enumeration enumeration = request.getParameterNames();
+		Map<String, String> parameterMap = new HashMap<>();
+		while(enumeration.hasMoreElements()){
+			String parameterName = (String) enumeration.nextElement();
+			parameterMap.put(parameterName, (String)request.getParameter(parameterName));
+		}
+		return parameterMap;
+	}
+	
+	
 	
 }

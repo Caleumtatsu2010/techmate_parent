@@ -15,6 +15,9 @@ public class ResultSetUtil {
 		ResultSetMetaData rsmd = rs.getMetaData();
 		for (int i = 1; i <= rsmd.getColumnCount(); i++) {
 			switch (rsmd.getColumnType(i)) {
+				case Types.TIMESTAMP:
+					resultSetValue = rs.getTimestamp(rsmd.getColumnName(i));
+					break;
 				case Types.LONGVARCHAR:
 					resultSetValue = rs.getString(rsmd.getColumnName(i));
 					break;

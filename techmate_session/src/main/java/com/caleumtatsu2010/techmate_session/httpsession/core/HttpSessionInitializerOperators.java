@@ -1,7 +1,7 @@
 package com.caleumtatsu2010.techmate_session.httpsession.core;
 
 import com.caleumtatsu2010.techmate_session.httpsession.config.HttpSessionSelfConfigurator;
-import com.caleumtatsu2010.utility.common.StringValidator;
+import com.caleumtatsu2010.utility.common.validate.StringValidator;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;

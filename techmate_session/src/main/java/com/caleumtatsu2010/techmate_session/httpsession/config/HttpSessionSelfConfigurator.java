@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.techmate_session.httpsession.config;
 
-import com.caleumtatsu2010.utility.common.StringValidator;
+import com.caleumtatsu2010.utility.common.validate.StringValidator;
 import com.caleumtatsu2010.utility.file.properties.PropsUtil;
 import lombok.Getter;
 

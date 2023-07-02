@@ -1,7 +1,8 @@
-package com.caleumtatsu2010.utility.object.servlet.request;
+package com.caleumtatsu2010.utility.servlet.request;
 
-import com.caleumtatsu2010.utility.common.StringValidator;
-import com.caleumtatsu2010.utility.object.pojo.reflect.ObjectUtilityInvoker;
+import com.caleumtatsu2010.utility.common.validate.StringValidator;
+import com.caleumtatsu2010.utility.object.reflect.ObjectUtilityInvoker;
+import com.caleumtatsu2010.utility.time.DateUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
@@ -25,6 +26,8 @@ public class RequestUlti {
 					case "double":
 						requestParamValue = StringValidator.safeParseDouble(request.getParameter(attrNames.get(i)));
 						break;
+					case "class java.sql.Timestamp":
+						requestParamValue = DateUtil.toSqlTimestamp(StringValidator.NulltoBlank(request.getParameter(attrNames.get(i))));
 					default:
 				}
 				ObjectUtilityInvoker.invokeSetter(obj, attrNames.get(i), requestParamValue);

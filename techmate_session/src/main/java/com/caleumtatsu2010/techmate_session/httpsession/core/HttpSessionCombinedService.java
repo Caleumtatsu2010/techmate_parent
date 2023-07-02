@@ -9,8 +9,8 @@ import javax.servlet.http.HttpSession;
 @NoArgsConstructor
 public class HttpSessionCombinedService {
 	
-	public static Object HttpGetSelfSession(String attributeName, HttpSession httpSession) {
-		HttpSessionSelfConfigurator httpSessionSelfConfigurator = new HttpSessionSelfConfigurator(SessionConfigPath.path);
+	public static Object HttpGetSelfSession(String sessionConfigPath, HttpSession httpSession, String attributeName) {
+		HttpSessionSelfConfigurator httpSessionSelfConfigurator = new HttpSessionSelfConfigurator(sessionConfigPath);
 		HttpSessionInitializerOperators httpSessionInitializerOperators = new HttpSessionInitializerOperators(httpSessionSelfConfigurator, httpSession);
 		return httpSessionInitializerOperators.getSessionAttribute(attributeName);
 	}

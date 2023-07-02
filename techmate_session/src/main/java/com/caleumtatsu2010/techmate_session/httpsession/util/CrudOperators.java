@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.techmate_session.httpsession.util;
 
-import com.caleumtatsu2010.utility.object.pojo.reflect.ObjectUtilityInvoker;
+import com.caleumtatsu2010.utility.object.reflect.ObjectUtilityInvoker;
 
 public class CrudOperators {
 	

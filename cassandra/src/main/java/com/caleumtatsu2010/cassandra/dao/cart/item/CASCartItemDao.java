@@ -40,7 +40,7 @@ public class CASCartItemDao implements CASDao<CASCartItem> {
 			for (Row row : rows) {
 				list.add(new CASCartItem(row.getUuid("id")
 						, row.getUuid("cart_id")
-						, row.getInt("product_id")
+						, row.getString("product_id")
 						, row.getInt("num")
 						));
 			}

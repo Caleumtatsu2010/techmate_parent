@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.utility.jdbc;
 
-import com.caleumtatsu2010.utility.object.reflect.ObjectUtilityInvoker;
+import com.caleumtatsu2010.utility.object.reflect.Invoker;
 
 import java.sql.*;
 import java.util.List;
@@ -31,9 +31,9 @@ public class PreparedStatementUtil {
 		}
 	}
 	
-	public static void mapPreparedStatementFieldNames(PreparedStatement ps, Object obj, List<String> attrNames) throws SQLException {
-		for (int i = 0; i < attrNames.size(); i++) {
-			mapParam(ps, ObjectUtilityInvoker.invokeGetter(obj, attrNames.get(i)), i + 1);
+	public static void mapPreparedStatementFieldNames(PreparedStatement ps, Object obj, List<String> allAttributeNames) throws SQLException {
+		for (int i = 0; i < allAttributeNames.size(); i++) {
+			mapParam(ps, Invoker.invokeGetter(obj, allAttributeNames.get(i)), i + 1);
 		}
 	}
 	
@@ -45,18 +45,18 @@ public class PreparedStatementUtil {
 	 * @param queryType 1:insert        2:update
 	 * @throws SQLException
 	 */
-	public static void mapPreparedStatementFieldNamesType(PreparedStatement ps, Object obj, List<String> attrNames, int queryType) throws SQLException {
-		List<String> tempAttrNames = attrNames;
-		if (queryType == 2 && "id".equals(attrNames.get(0))) { // is update query
-			tempAttrNames.add(attrNames.get(0));
+	public static void mapPreparedStatementFieldNamesType(PreparedStatement ps, Object obj, List<String> allAttributeNames, int queryType) throws SQLException {
+		List<String> tempAttrNames = allAttributeNames;
+		if (queryType == 2 && "id".equals(allAttributeNames.get(0))) { // is update query
+			tempAttrNames.add(allAttributeNames.get(0));
 			tempAttrNames.remove(0);
 		}
 		mapPreparedStatementFieldNames(ps, obj, tempAttrNames);
 	}
 	
 	public static void mapPreparedStatementToObjectType(PreparedStatement ps, Object obj, int queryType) throws SQLException {
-		List<String> attrNames = ObjectUtilityInvoker.getAllAttributeName(obj);
-		mapPreparedStatementFieldNamesType(ps, obj, attrNames, queryType);
+		List<String> allAttributeNames = Invoker.getAllAttributeNames(obj);
+		mapPreparedStatementFieldNamesType(ps, obj, allAttributeNames, queryType);
 	}
 	
 	public static void main(String[] args) {

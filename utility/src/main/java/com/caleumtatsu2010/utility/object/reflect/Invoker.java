@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ObjectUtilityInvoker {
+public class Invoker {
 
 
 //    public static List<Object> invokeGetters(Object p) {
@@ -110,7 +110,7 @@ public class ObjectUtilityInvoker {
 		return methodReturn;
 	}
 	
-	public static List<String> getAllAttributeName(Object object) {
+	public static List<String> getAllAttributeNames(Object object) {
 		List<String> attrNames = new ArrayList<>();
 		Field[] attributes = object.getClass().getDeclaredFields();
 		for (Field field : attributes) {
@@ -125,7 +125,7 @@ public class ObjectUtilityInvoker {
 		Field[] attributes = object.getClass().getDeclaredFields();
 		for (Field field : attributes) {
 			// Dynamically read Attribute Name
-			attrType.add(field.getType().toString());
+			attrType.add(field.getType().toString().substring(6));
 		}
 		return attrType;
 	}

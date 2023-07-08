@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.utility.jdbc;
 
-import com.caleumtatsu2010.utility.object.reflect.ObjectUtilityInvoker;
+import com.caleumtatsu2010.utility.object.reflect.Invoker;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -41,12 +41,12 @@ public class ResultSetUtil {
 					break;
 				default:
 			}
-			ObjectUtilityInvoker.invokeSetter(obj, attrNames.get(i - 1), (resultSetValue == null) ? "null" : resultSetValue);
+			Invoker.invokeSetter(obj, attrNames.get(i - 1), (resultSetValue == null) ? "null" : resultSetValue);
 		}
 	}
 	
 	public static void mapResultSetToObject(ResultSet rs, Object obj) throws SQLException {
-		List<String> attrNames = ObjectUtilityInvoker.getAllAttributeName(obj);
+		List<String> attrNames = Invoker.getAllAttributeNames(obj);
 		mapResultSetToObjectFieldNames(rs, obj, attrNames);
 	}
 	

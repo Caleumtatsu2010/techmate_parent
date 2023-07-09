@@ -54,6 +54,14 @@ public class PreparedStatementUtil {
 		mapPreparedStatementFieldNames(ps, obj, tempAttrNames);
 	}
 	
+	/**
+	 *
+	 * @param ps
+	 * @param obj
+	 * @param queryType 1 for insert query because id is on first place
+	 *                  2 for update query because id is on last place
+	 * @throws SQLException
+	 */
 	public static void mapPreparedStatementToObjectType(PreparedStatement ps, Object obj, int queryType) throws SQLException {
 		List<String> allAttributeNames = Invoker.getAllAttributeNames(obj);
 		mapPreparedStatementFieldNamesType(ps, obj, allAttributeNames, queryType);

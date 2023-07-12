@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.utility.servlet.request;
 
-import com.caleumtatsu2010.utility.common.validate.StringValidator;
+import com.caleumtatsu2010.utility.common.validate.StrValidator;
 import com.caleumtatsu2010.utility.object.reflect.Invoker;
 import com.caleumtatsu2010.utility.time.DateUtil;
 
@@ -17,16 +17,16 @@ public class RequestUlti {
 			for (int i = 0; i < attrNames.size(); i++) {
 				switch (attrTypes.get(i)) {
 					case "java.lang.String":
-						requestParamValue = StringValidator.NulltoBlank(request.getParameter(attrNames.get(i)));
+						requestParamValue = StrValidator.NulltoBlank(request.getParameter(attrNames.get(i)));
 						break;
 					case "int":
-						requestParamValue = StringValidator.safeParseInt(request.getParameter(attrNames.get(i)));
+						requestParamValue = StrValidator.safeParseInt(request.getParameter(attrNames.get(i)));
 						break;
 					case "double":
-						requestParamValue = StringValidator.safeParseDouble(request.getParameter(attrNames.get(i)));
+						requestParamValue = StrValidator.safeParseDouble(request.getParameter(attrNames.get(i)));
 						break;
 					case "java.sql.Timestamp":
-						requestParamValue = DateUtil.toSqlTimestamp(StringValidator.NulltoBlank(request.getParameter(attrNames.get(i))), DateUtil.timeStampFormat1);
+						requestParamValue = DateUtil.toSqlTimestamp(StrValidator.NulltoBlank(request.getParameter(attrNames.get(i))), DateUtil.timeStampFormat1);
 					default:
 				}
 				Invoker.invokeSetter(obj, attrNames.get(i), requestParamValue);

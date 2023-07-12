@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.techmate_session.httpsession.config;
 
-import com.caleumtatsu2010.utility.common.validate.StringValidator;
+import com.caleumtatsu2010.utility.common.validate.StrValidator;
 import com.caleumtatsu2010.utility.file.properties.PropsUtil;
 import lombok.Getter;
 
@@ -17,7 +17,7 @@ public class HttpSessionSelfConfigurator {
 	
 	public SessionConfig readSessionConfig(String sessionConfigPath, String propName) {
 		Properties prop = PropsUtil.loadProp(sessionConfigPath);
-		int maxInactiveInterval = StringValidator.safeParseInt(prop.getProperty(propName));
+		int maxInactiveInterval = StrValidator.safeParseInt(prop.getProperty(propName));
 		return new SessionConfig(maxInactiveInterval);
 	}
 	

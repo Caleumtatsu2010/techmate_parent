@@ -1,7 +1,7 @@
 package com.caleumtatsu2010.techmate_session.httpsession.core;
 
 import com.caleumtatsu2010.techmate_session.httpsession.config.HttpSessionSelfConfigurator;
-import com.caleumtatsu2010.utility.common.validate.StringValidator;
+import com.caleumtatsu2010.utility.common.validate.StrValidator;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -23,17 +23,17 @@ public class HttpSessionInitializerOperators implements HttpSessionInitializer {
 	
 	@Override
 	public void setSessionAttribute(String attributeName, Object castObject) {
-		this.httpSession.setAttribute(StringValidator.NulltoBlank(attributeName), castObject);
+		this.httpSession.setAttribute(StrValidator.NulltoBlank(attributeName), castObject);
 	}
 	
 	@Override
 	public Object getSessionAttribute(String attributeName) {
-		return this.httpSession.getAttribute(StringValidator.NulltoBlank(attributeName));
+		return this.httpSession.getAttribute(StrValidator.NulltoBlank(attributeName));
 	}
 	
 	@Override
 	public void removeSessionAttribute(String attributeName) {
-		this.httpSession.removeAttribute(StringValidator.NulltoBlank(attributeName));
+		this.httpSession.removeAttribute(StrValidator.NulltoBlank(attributeName));
 	}
 	
 	@Override

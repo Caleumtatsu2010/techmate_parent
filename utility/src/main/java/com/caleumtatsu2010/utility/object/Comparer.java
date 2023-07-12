@@ -1,6 +1,5 @@
 package com.caleumtatsu2010.utility.object;
 
-import com.caleumtatsu2010.utility.common.validate.StringValidator;
 import com.caleumtatsu2010.utility.object.reflect.Invoker;
 
 import java.sql.*;

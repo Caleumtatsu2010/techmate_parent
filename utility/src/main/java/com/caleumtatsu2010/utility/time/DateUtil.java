@@ -8,12 +8,14 @@ package com.caleumtatsu2010.utility.time;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtil {
-
-    private static String format1 = "yyyy-MM-dd HH:mm:ss";
+    
+    public static String timeStampFormat1 = "yyyy-MM-dd hh:mm:ss";
+    public static String timeStampFormat2 = "yyyy-MM-dd hh:mm:ss.SSS";
 
     private DateUtil() {
     }
@@ -27,6 +29,7 @@ public class DateUtil {
 //        SimpleDateFormat format = new SimpleDateFormat(format1);
 //        System.out.println(format.format(toSqlTimestamp(rightNow)));
         System.out.println(DateUtil.getCurrTimestamp());
+        System.out.println(toSqlTimestamp("", timeStampFormat1));
     }
 
     public static int getDaysInMonth(int year, int month) {
@@ -113,6 +116,24 @@ public class DateUtil {
         Time sqlTime = new Time(tempDate.getTime());
         return sqlTime;
     }
+    
+    public static Timestamp toSqlTimestamp(String date, String format) {
+        Timestamp timestampl = null;
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+            if (date != null && date.trim().length() != 0 && !date.contains(":")) {
+                if (timeStampFormat1.equals(format)) {
+                    date = date + " 00:00:00";
+                } else if (timeStampFormat2.equals(format)) {
+                    date = date + " 00:00:00.000";
+                }
+            }
+            Date parsedDate = dateFormat.parse(date);
+            timestampl = new Timestamp(parsedDate.getTime());
+        } catch (Exception e) {
+        }
+        return timestampl;
+    }
 
     public static Timestamp toSqlTimestamp(Calendar date) {
         Timestamp sqlTimestamp = null;
@@ -127,6 +148,7 @@ public class DateUtil {
         Timestamp timestamp = new Timestamp(date.getTime());
         return timestamp;
     }
+    
 
     public static String toStringDate(Calendar date) {
         DecimalFormat df1 = new DecimalFormat("0000");

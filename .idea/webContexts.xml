@@ -5,7 +5,10 @@
       <map>
         <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/WEB-INF/tags/ClientLayout.tag" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/WEB-INF/tags" />
         <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/cart/Cart.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/cart" />
+        <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/cart/Index.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/cart" />
         <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/product/Detail.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/product" />
+        <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/user/Index.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/user" />
+        <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/user/address/Index2.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/user/address" />
       </map>
     </option>
   </component>

@@ -15,6 +15,6 @@ import java.util.UUID;
 public class CASCartItem {
 	private UUID id;
 	private UUID cartId;
-	private int productId;
+	private String productId;
 	private int num;
 }

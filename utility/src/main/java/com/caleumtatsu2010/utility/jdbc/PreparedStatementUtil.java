@@ -58,8 +58,8 @@ public class PreparedStatementUtil {
 	 *
 	 * @param ps
 	 * @param obj
-	 * @param queryType 1 for insert query because id is on first place
-	 *                  2 for update query because id is on last place
+	 * @param queryType 1 for insert query because id is on first place of the query
+	 *                  2 for update query because id is on last place of the query
 	 * @throws SQLException
 	 */
 	public static void mapPreparedStatementToObjectType(PreparedStatement ps, Object obj, int queryType) throws SQLException {

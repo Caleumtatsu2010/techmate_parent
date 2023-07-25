@@ -9,6 +9,14 @@ import java.util.*;
 
 public class RequestUlti {
 	
+	public static void autoSetAttribute(HttpServletRequest request, Object obj) {
+		String attributeName = obj.getClass().getSimpleName();
+		if (obj instanceof List) {
+			attributeName = attributeName + "List";
+		}
+		request.setAttribute(attributeName, obj);
+	}
+	
 	public static void mapRequestParamToObjByField(HttpServletRequest request, Object obj) {
 		try {
 			List<String> attrNames = Invoker.getAllAttributeNames(obj);
@@ -46,6 +54,15 @@ public class RequestUlti {
 		return parameterMap;
 	}
 	
+//	public static Map<String, String> getAllParameterName(HttpServletRequest request, String sameName){
+//		String[] listParamName= request.getParameterValues(sameName);
+//		Map<String, String> parameterMap = new HashMap<>();
+//		for(int i =0;i<listParamName.length;i++)
+//			String parameterName = (String) enumeration.nextElement();
+//			parameterMap.put(sameName, (String)request.getParameter(sameName));
+//		}
+//		return parameterMap;
+//	}
 	
 	
 }

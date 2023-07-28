@@ -42,6 +42,7 @@ public class CASCartItemDao implements CASDao<CASCartItem> {
 						, row.getUuid("cart_id")
 						, row.getString("product_id")
 						, row.getInt("num")
+						, row.getString("check")
 						));
 			}
 			return list;

@@ -54,15 +54,11 @@ public class RequestUlti {
 		return parameterMap;
 	}
 	
-//	public static Map<String, String> getAllParameterName(HttpServletRequest request, String sameName){
-//		String[] listParamName= request.getParameterValues(sameName);
-//		Map<String, String> parameterMap = new HashMap<>();
-//		for(int i =0;i<listParamName.length;i++)
-//			String parameterName = (String) enumeration.nextElement();
-//			parameterMap.put(sameName, (String)request.getParameter(sameName));
-//		}
-//		return parameterMap;
-//	}
+	public static Iterator<Map.Entry<String, String>> getAllParametersIterator(HttpServletRequest request) {
+		Map<String, String> parameterMap = getAllParameters(request);
+		Iterator<Map.Entry<String, String>> new_Iterator = parameterMap.entrySet().iterator();
+		return new_Iterator;
+	}
 	
 	
 }

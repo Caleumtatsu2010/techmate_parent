@@ -38,7 +38,9 @@ public class HttpSessionInitializerOperators implements HttpSessionInitializer {
 	
 	@Override
 	public void sessionInvalidate() {
-		httpSession.invalidate();
+		if(httpSession != null){
+			httpSession.invalidate();
+		}
 	}
 	
 	@Override

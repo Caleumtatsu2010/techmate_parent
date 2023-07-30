@@ -10,9 +10,15 @@ import java.util.*;
 public class RequestUlti {
 	
 	public static void autoSetAttribute(HttpServletRequest request, Object obj) {
-		String attributeName = obj.getClass().getSimpleName();
+		String attributeName = obj.getClass().getSimpleName();//attribute name as object name
 		if (obj instanceof List) {
-			attributeName = attributeName + "List";
+			String elementClassName = "Null";
+			try {
+				elementClassName = ((List<?>) obj).get(0).getClass().getSimpleName();
+			} catch (ArrayIndexOutOfBoundsException e) {
+				obj = null;// ex NullList
+			}
+			attributeName = elementClassName + "List";// ex ProductList
 		}
 		request.setAttribute(attributeName, obj);
 	}

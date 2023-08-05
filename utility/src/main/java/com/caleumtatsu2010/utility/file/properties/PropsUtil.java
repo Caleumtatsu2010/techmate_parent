@@ -4,7 +4,7 @@ package com.caleumtatsu2010.utility.file.properties;
 import java.io.*;
 
 public class PropsUtil {
-	
+
 	public static java.util.Properties loadProp(String filepath) {
 		java.util.Properties prop = null;
 		try (InputStream input = new FileInputStream(filepath)) {
@@ -15,9 +15,9 @@ public class PropsUtil {
 			e.printStackTrace();
 		}
 		return prop;
-		
+
 	}
-	
+
 	public static String readDatabasePath(String propPath, String dbName) {
 		java.util.Properties prop = null;
 		try (InputStream input = new FileInputStream(propPath)) {
@@ -30,6 +30,6 @@ public class PropsUtil {
 		}
 		return null;
 	}
-	
+
 }
 

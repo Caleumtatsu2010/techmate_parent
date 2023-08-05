@@ -76,27 +76,6 @@ public class CASCartDao implements CASDao<CASCart> {
 	}
 
 
-//	    @Override
-//    public void insert(Product product) {
-//
-//        Connection connection = null;
-//        PreparedStatement ps = null;
-//        ResultSet rs = null;
-//        try {
-//            connection = connectionUtil.getConn();
-//            ps = connection.prepareStatement(ProductQueries.insertProduct);
-//            String[] productAttr = new String[]{"id", "name", "price", "currency", "discountId",
-//             "quantity", "temp1", "temp2", "temp3", "temp4",
-//              "star", "ratings", "image", "subCategoryId"};
-//            StatementUtil.mapParams(ps, product, productAttr);
-//            ps.executeUpdate();
-//            System.out.println("Data Added Successfully");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        } finally {
-//            ConnectionUtil.closeAll(connection, ps, rs);
-//        }
-	
 	
 	@Override
 	public void update(CASCart cart, UUID id) {

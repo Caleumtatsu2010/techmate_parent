@@ -4,7 +4,7 @@ import com.caleumtatsu2010.techmate_session.httpsession.HttpSessionInstance;
 
 import java.util.List;
 
-public interface HttpSessionInitializer extends HttpSessionInstance {
+public interface HttpSessionInit extends HttpSessionInstance {
 	
 	public void setSessionAttribute(String attributeName, Object o);
 	

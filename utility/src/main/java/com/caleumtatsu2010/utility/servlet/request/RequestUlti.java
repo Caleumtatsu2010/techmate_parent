@@ -9,6 +9,11 @@ import java.util.*;
 
 public class RequestUlti {
 	
+	/**
+	 * for object and List<ArrayList> objectList only
+	 * @param request
+	 * @param obj
+	 */
 	public static void autoSetAttribute(HttpServletRequest request, Object obj) {
 		String attributeName = obj.getClass().getSimpleName();//attribute name as object name
 		if (obj instanceof List) {

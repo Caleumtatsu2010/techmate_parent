@@ -39,7 +39,12 @@ public class HttpSessionInitOperators implements HttpSessionInit {
 	}
 	
 	public Object autoGetSessionAttribute(Object castObject) {
-		String attributeName = castObject.getClass().getSimpleName();//attribute name as object name
+		String attributeName = "";
+		try {
+			attributeName = castObject.getClass().getSimpleName();//attribute name as object name
+		} catch (NullPointerException e) {
+			return null;
+		}
 		return getSessionAttribute(attributeName);
 	}
 	

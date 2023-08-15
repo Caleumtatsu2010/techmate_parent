@@ -27,6 +27,8 @@ public class Comparer {
 	}
 	
 	/**
+	 * if there only one attribute of first object not equals to one attribute of seccond object
+	 * method return false
 	 * @throws SQLException
 	 */
 	public static boolean selfEquals(Object obj1, Object obj2) {

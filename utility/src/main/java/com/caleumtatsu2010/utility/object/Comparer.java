@@ -33,11 +33,17 @@ public class Comparer {
 	 */
 	public static boolean selfEquals(Object obj1, Object obj2) {
 		if (obj1 instanceof Integer && obj2 instanceof Integer) {
-			if ((Integer) obj1 != (Integer) obj2) {
+//			if ((Integer) obj1 != (Integer) obj2) {
+//				return false;
+//			}
+			if (!((Integer) obj1).equals((Integer) obj2)) {
 				return false;
 			}
 		} else if (obj1 instanceof Double && obj2 instanceof Double) {
-			if ((Double) obj1 != (Double) obj2) {
+//			if ((Double) obj1 != (Double) obj2) {
+//				return false;
+//			}
+			if (!((Double) obj1).equals((Double) obj2)) {
 				return false;
 			}
 		} else if (obj1 instanceof String && obj2 instanceof String) {

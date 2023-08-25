@@ -39,6 +39,9 @@ public class ResultSetUtil {
 				case Types.DECIMAL:
 					resultSetValue = rs.getDouble(rsmd.getColumnName(i));
 					break;
+				case Types.LONGVARBINARY:
+					resultSetValue = rs.getBytes(rsmd.getColumnName(i));// new update for bytes array
+					break;
 				default:
 			}
 			Invoker.invokeSetter(obj, attrNames.get(i - 1), (resultSetValue == null) ? "null" : resultSetValue);

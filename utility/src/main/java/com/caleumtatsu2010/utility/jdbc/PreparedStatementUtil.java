@@ -7,12 +7,6 @@ import java.util.List;
 
 public class PreparedStatementUtil {
 	
-	/**
-	 * @param ps
-	 * @param arg
-	 * @param i
-	 * @throws SQLException
-	 */
 	public static void mapParam(PreparedStatement ps, Object arg, int i) throws SQLException {
 		if (arg instanceof Integer) {
 			ps.setInt(i, (Integer) arg);
@@ -26,6 +20,10 @@ public class PreparedStatementUtil {
 			ps.setTimestamp(i, (Timestamp) arg);
 		} else if (arg instanceof Blob) {
 			ps.setBlob(i, (Blob) arg);
+		} else if (arg == byte[].class) {
+			ps.setBytes(i, (byte[]) arg);
+		} else if ("byte[]".equals(arg.getClass().getSimpleName())) {
+			ps.setBytes(i, (byte[]) arg);
 		} else {
 			ps.setDate(i, (Date) arg);
 		}
@@ -38,12 +36,11 @@ public class PreparedStatementUtil {
 	}
 	
 	/**
-	 *
-	 * @param ps
-	 * @param obj
-	 * @param attrNames
-	 * @param queryType 1:insert        2:update
-	 * @throws SQLException
+	 * @param ps                PreparedStatement
+	 * @param obj               Object
+	 * @param allAttributeNames allAttributeNames
+	 * @param queryType         1:insert        2:update
+	 * @throws SQLException SQLException
 	 */
 	public static void mapPreparedStatementFieldNamesType(PreparedStatement ps, Object obj, List<String> allAttributeNames, int queryType) throws SQLException {
 		List<String> tempAttrNames = allAttributeNames;
@@ -55,12 +52,11 @@ public class PreparedStatementUtil {
 	}
 	
 	/**
-	 *
-	 * @param ps
-	 * @param obj
+	 * @param ps        PreparedStatement
+	 * @param obj       Object
 	 * @param queryType 1 for insert query because id is on first place of the query
 	 *                  2 for update query because id is on last place of the query
-	 * @throws SQLException
+	 * @throws SQLException SQLException
 	 */
 	public static void mapPreparedStatementToObjectType(PreparedStatement ps, Object obj, int queryType) throws SQLException {
 		List<String> allAttributeNames = Invoker.getAllAttributeNames(obj);

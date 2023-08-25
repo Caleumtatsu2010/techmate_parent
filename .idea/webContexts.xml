@@ -5,6 +5,8 @@
       <map>
         <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/WEB-INF/tags/AdminLayout.tag" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/WEB-INF/tags" />
         <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/WEB-INF/tags/ClientLayout.tag" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/WEB-INF/tags" />
+        <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/account/Index.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/account" />
+        <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/account/admin/Update.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/account/admin" />
         <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/home/Index.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/home" />
         <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/login/Login.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/login" />
         <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/product/Update.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/product" />

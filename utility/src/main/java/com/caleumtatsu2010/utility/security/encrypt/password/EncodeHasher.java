@@ -33,20 +33,20 @@ public class EncodeHasher {
         return salt;
     }
 
-//    public static void main(String[] args) throws NoSuchAlgorithmException {
-//
-//        // same salt should be passed
-//        byte[] salt = getSalt();
-//        System.out.println("Salt ->"+ Base64.getEncoder().encodeToString(salt));
-//        String password1 = getSecurePassword("1234", salt, "SHA-512");
-//        String password2 = getSecurePassword("1234", salt, "SHA-512");
-//        System.out.println(" Password 1 -> " + password1);
-//        System.out.println(" Password 2 -> " + password2);
-//        if (password1.equals(password2)) {
-//            System.out.println("passwords are equal");
-//        }
-//
-//    }
+    public static void main(String[] args) throws NoSuchAlgorithmException {
+
+        // same salt should be passed
+        byte[] salt = getSalt();
+        System.out.println("Salt ->"+ Base64.getEncoder().encodeToString(salt));
+        String password1 = getSecurePassword("1234", salt, "SHA-512");
+        String password2 = getSecurePassword("1234", salt, "SHA-512");
+        System.out.println(" Password 1 -> " + password1);
+        System.out.println(" Password 2 -> " + password2);
+        if (password1.equals(password2)) {
+            System.out.println("passwords are equal");
+        }
+
+    }
 
 
 }

@@ -1,0 +1,13 @@
+@startuml
+left to right direction
+actor KhachHang #line:A80036;
+usecase QuanLyBlog #Wheat;line:A80036;
+usecase DatHang #Wheat;line:A80036;
+usecase TraCuuDonHang #Wheat;line:A80036;
+usecase HuyDonHang #Wheat;line:A80036;
+
+KhachHang  --> QuanLyBlog #line:A80036 : \t\t\t\t
+QuanLyBlog  <.left.  DatHang #line:A80036 : \n\n\n\n<<extend>>\n\n\n\n
+QuanLyBlog  <.down.  TraCuuDonHang #line:A80036 : \t\t <<extend>> \t\t
+QuanLyBlog  <.right.  HuyDonHang #line:A80036 : \n\n\n\n<<extend>>\n\n\n\n
+@endum

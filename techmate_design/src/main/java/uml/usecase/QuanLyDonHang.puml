@@ -1,0 +1,11 @@
+@startuml
+left to right direction
+actor NhanVien #line:A80036;
+usecase QuanLyDonHang #Wheat;line:A80036;
+usecase DangNhap #Wheat;line:A80036;
+usecase CapNhatTrangThai #Wheat;line:A80036;
+
+NhanVien  --> QuanLyDonHang #line:A80036 : \t\t\t\t
+QuanLyDonHang  .left.>  DangNhap #line:A80036 : \n\n\n\n <<include>> \n\n\n\n
+QuanLyDonHang  <.down.  CapNhatTrangThai #line:A80036 : \t\t <<extend>> \t\t
+@endum

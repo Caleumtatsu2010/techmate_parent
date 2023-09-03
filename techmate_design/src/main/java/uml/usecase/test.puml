@@ -1,0 +1,8 @@
+@startuml
+left to right direction
+Librarian --> (Accept Payment)
+(Accept  Payment)  <..  (Accept  Cash  Payment)  : <<Inheritance>>
+(Accept  Payment)  <..  (Accept  Credit  Card  Payment)  : <<Inheritance>>
+(Accept  Payment)  <..  (Accept  Mobile  Phone  Payment)  : <<Inheritance>>
+@endum
+

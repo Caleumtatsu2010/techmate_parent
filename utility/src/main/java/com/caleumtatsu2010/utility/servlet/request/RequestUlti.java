@@ -20,7 +20,7 @@ public class RequestUlti {
 			String elementClassName = "Null";
 			try {
 				elementClassName = ((List<?>) obj).get(0).getClass().getSimpleName();
-			} catch (ArrayIndexOutOfBoundsException e) {
+			} catch (IndexOutOfBoundsException e) {
 				obj = null;// ex NullList
 			}
 			attributeName = elementClassName + "List";// ex ProductList

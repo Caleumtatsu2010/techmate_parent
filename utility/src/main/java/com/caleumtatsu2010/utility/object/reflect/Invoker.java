@@ -134,7 +134,7 @@ public class Invoker {
 		return attrType;
 	}
 	
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
 //		Calendar cal = Calendar.getInstance();
 //        Cart cart = new Cart(2, "userid", 10, DateUtility.toSqlTimestamp(cal), DateUtility.toSqlTimestamp(cal));
 //
@@ -145,6 +145,6 @@ public class Invoker {
 //        System.out.println(invokeGetter(cart, "modifiedAt"));
 		
 	
-	}
+//	}
 	
 }

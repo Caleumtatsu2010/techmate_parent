@@ -1,0 +1,98 @@
+@startuml
+
+skinparam {
+Participant underline
+ArrowColor  #A80036
+
+
+ActorBorderColor #A80036
+ActorFontStyle bold
+
+
+BoundaryFontStyle bold
+BoundaryBackgroundColor #Wheat
+
+ControlFontStyle bold
+ControlBackgroundColor #Wheat
+
+ControlFontStyle bold
+ControlBackgroundColor #Wheat
+
+EntityFontStyle bold
+EntityBackgroundColor #Wheat
+}
+
+actor KhachHang
+boundary    DangKyUI
+control     DangKyController
+entity      User
+boundary    CSDL
+
+
+KhachHang ->> DangKyUI : 1: Nhan lien ket dang ky()
+activate KhachHang
+activate DangKyUI
+deactivate KhachHang
+deactivate DangKyUI
+
+DangKyUI ->> DangKyUI  : 2: Hien thi form dang ky()
+activate DangKyUI
+deactivate DangKyUI
+
+
+
+KhachHang ->> DangKyUI  : 3: Nhap ten dang nhap, mat khau()
+activate KhachHang
+activate DangKyUI
+deactivate KhachHang
+deactivate DangKyUI
+
+KhachHang ->> DangKyUI  : 4: Nhan nut dang ky()
+activate KhachHang
+activate DangKyUI
+deactivate KhachHang
+deactivate DangKyUI
+
+DangKyUI ->> DangKyController  : 5: Kiem tra thong tin dang ky()
+activate DangKyUI
+activate DangKyController
+deactivate DangKyUI
+deactivate DangKyController
+
+DangKyController ->> DangKyUI : 6: Hien thi form xac nhan()
+activate DangKyController
+activate DangKyUI
+deactivate DangKyController
+deactivate DangKyUI
+
+KhachHang ->> DangKyUI : 7: Nhap ma xac nhan()
+activate KhachHang
+activate DangKyUI
+deactivate KhachHang
+deactivate DangKyUI
+
+DangKyUI ->> DangKyController : 8: Kiem tra ma xac nhan()
+activate DangKyController
+activate DangKyUI
+deactivate DangKyController
+deactivate DangKyUI
+
+DangKyController ->> User : 9: Them tai khoan()
+activate DangKyController
+activate User
+deactivate DangKyController
+deactivate User
+
+DangKyController ->> CSDL : 10: Cap nhat bang user()
+activate DangKyController
+activate CSDL
+deactivate DangKyController
+deactivate CSDL
+
+DangKyController ->> DangKyUI : 11: Hien thi thong bao()
+activate DangKyController
+activate DangKyUI
+deactivate DangKyController
+deactivate DangKyUI
+
+@enduml

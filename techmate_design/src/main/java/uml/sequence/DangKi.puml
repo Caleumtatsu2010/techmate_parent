@@ -1,5 +1,12 @@
 @startuml
 
+skinparam sequence {
+
+LifeLineBorderColor #A80036
+
+}
+
+
 skinparam {
 Participant underline
 ArrowColor  #A80036

@@ -15,9 +15,12 @@ public class RequestUlti {
 	 * @param obj
 	 */
 	public static void autoSetAttribute(HttpServletRequest request, Object obj) {
-		String attributeName = obj.getClass().getSimpleName();//attribute name as object name
+		String attributeName = "";
+		if (obj != null) {
+			attributeName = obj.getClass().getSimpleName();
+		}
 		if (obj instanceof List) {
-			String elementClassName = "Null";
+			String elementClassName = "";
 			try {
 				elementClassName = ((List<?>) obj).get(0).getClass().getSimpleName();
 			} catch (IndexOutOfBoundsException e) {

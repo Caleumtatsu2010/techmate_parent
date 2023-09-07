@@ -1,0 +1,91 @@
+@startuml
+
+skinparam sequence {
+
+LifeLineBorderColor #A80036
+
+}
+
+
+skinparam {
+Participant underline
+ArrowColor  #A80036
+
+ActorBorderColor #A80036
+ActorFontStyle bold
+
+
+BoundaryFontStyle bold
+BoundaryBackgroundColor #Bisque
+
+ControlFontStyle bold
+ControlBackgroundColor #Bisque
+
+ControlFontStyle bold
+ControlBackgroundColor #Bisque
+
+EntityFontStyle bold
+EntityBackgroundColor #Bisque
+}
+
+
+actor Admin 
+boundary    QuanLySanPhamUI
+control     QuanLySanPhamController
+entity      Product
+boundary    CSDL
+
+
+Admin ->> QuanLySanPhamUI : 1: Nhan nut them()
+activate Admin
+activate QuanLySanPhamUI
+deactivate Admin
+deactivate QuanLySanPhamUI
+
+QuanLySanPhamUI ->> QuanLySanPhamUI  : 2: Hien thi form them san pham()
+activate QuanLySanPhamUI
+deactivate QuanLySanPhamUI
+
+
+
+Admin ->> QuanLySanPhamUI  : 3: Nhap thong tin san pham()
+activate Admin
+activate QuanLySanPhamUI
+deactivate Admin
+deactivate QuanLySanPhamUI
+
+Admin ->> QuanLySanPhamUI  : 4: Nhan nut them san pham()
+activate Admin
+activate QuanLySanPhamUI
+deactivate Admin
+deactivate QuanLySanPhamUI
+
+QuanLySanPhamUI ->> QuanLySanPhamController  : 5: Kiem tra thong tin san pham()
+activate QuanLySanPhamUI
+activate QuanLySanPhamController
+deactivate QuanLySanPhamUI
+deactivate QuanLySanPhamController
+
+Product <<- QuanLySanPhamController : 6: Them san pham()
+activate QuanLySanPhamController
+activate Product
+deactivate QuanLySanPhamController
+deactivate Product
+
+QuanLySanPhamController ->> CSDL : 7: Cap nhat bang product()
+activate QuanLySanPhamController
+activate CSDL
+deactivate QuanLySanPhamController
+deactivate CSDL
+
+
+
+QuanLySanPhamController ->> QuanLySanPhamUI : 8: Hien thi thong bao()
+activate QuanLySanPhamController
+activate QuanLySanPhamUI
+deactivate QuanLySanPhamController
+deactivate QuanLySanPhamUI
+
+
+
+@enduml

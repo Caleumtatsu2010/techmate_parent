@@ -1,0 +1,97 @@
+@startuml
+
+skinparam sequence {
+
+LifeLineBorderColor #A80036
+
+}
+
+
+skinparam {
+Participant underline
+ArrowColor  #A80036
+
+ActorBorderColor #A80036
+ActorFontStyle bold
+
+
+BoundaryFontStyle bold
+BoundaryBackgroundColor #Bisque
+
+ControlFontStyle bold
+ControlBackgroundColor #Bisque
+
+ControlFontStyle bold
+ControlBackgroundColor #Bisque
+
+EntityFontStyle bold
+EntityBackgroundColor #Bisque
+}
+
+
+actor Admin 
+boundary    QuanLyDonHangUI
+control     QuanLyDonHangController
+entity      Order
+boundary    CSDL
+
+
+Admin ->> QuanLyDonHangUI : 1: Chon don hang can xu ly()
+activate Admin
+activate QuanLyDonHangUI
+deactivate Admin
+deactivate QuanLyDonHangUI
+
+Admin ->> QuanLyDonHangUI : 2: Chon trang thai don hang()
+activate Admin
+activate QuanLyDonHangUI
+deactivate Admin
+deactivate QuanLyDonHangUI
+
+'QuanLyDonHangUI ->> QuanLyDonHangUI  : 3: Hien thi form cap nhat()
+'activate QuanLyDonHangUI
+'deactivate QuanLyDonHangUI
+
+
+
+'Admin ->> QuanLyDonHangUI  : 3: Lay id cua don hang()
+'activate Admin
+'activate QuanLyDonHangUI
+'deactivate Admin
+'deactivate QuanLyDonHangUI
+
+'Admin ->> QuanLyDonHangUI  : 3: Lay id cua don hang()
+'activate Admin
+'activate QuanLyDonHangUI
+'deactivate Admin
+'deactivate QuanLyDonHangUI
+
+QuanLyDonHangUI ->> QuanLyDonHangController  : 3: Lay id cua don hang()
+activate QuanLyDonHangUI
+activate QuanLyDonHangController
+deactivate QuanLyDonHangUI
+deactivate QuanLyDonHangController
+
+Order <<- QuanLyDonHangController : 4: Cap nhat trang thai don hang()
+activate QuanLyDonHangController
+activate Order
+deactivate QuanLyDonHangController
+deactivate Order
+
+QuanLyDonHangController ->> CSDL : 5: Cap nhat bang Order()
+activate QuanLyDonHangController
+activate CSDL
+deactivate QuanLyDonHangController
+deactivate CSDL
+
+
+
+QuanLyDonHangController ->> QuanLyDonHangUI : 6: Hien thi thong bao()
+activate QuanLyDonHangController
+activate QuanLyDonHangUI
+deactivate QuanLyDonHangController
+deactivate QuanLyDonHangUI
+
+
+
+@enduml

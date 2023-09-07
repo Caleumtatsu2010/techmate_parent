@@ -1,4 +1,10 @@
 @startuml
+
+skinparam {
+ActorBorderColor #A80036
+ActorFontStyle bold
+UsecaseFontStyle bold
+}
 left to right direction
 actor KhachHang #line:A80036;
 usecase XuLyDatHang #Wheat;line:A80036;

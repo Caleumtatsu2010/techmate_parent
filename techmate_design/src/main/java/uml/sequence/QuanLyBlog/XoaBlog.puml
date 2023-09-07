@@ -1,0 +1,97 @@
+@startuml
+
+skinparam sequence {
+
+LifeLineBorderColor #A80036
+
+}
+
+
+skinparam {
+Participant underline
+ArrowColor  #A80036
+
+ActorBorderColor #A80036
+ActorFontStyle bold
+
+
+BoundaryFontStyle bold
+BoundaryBackgroundColor #Bisque
+
+ControlFontStyle bold
+ControlBackgroundColor #Bisque
+
+ControlFontStyle bold
+ControlBackgroundColor #Bisque
+
+EntityFontStyle bold
+EntityBackgroundColor #Bisque
+}
+
+
+actor Admin 
+boundary    QuanLyBlogUI
+control     QuanLyBlogController
+entity      Blog
+boundary    CSDL
+
+
+Admin ->> QuanLyBlogUI : 1: Chon blog can xoa()
+activate Admin
+activate QuanLyBlogUI
+deactivate Admin
+deactivate QuanLyBlogUI
+
+Admin ->> QuanLyBlogUI : 2: Nhan nut xoa()
+activate Admin
+activate QuanLyBlogUI
+deactivate Admin
+deactivate QuanLyBlogUI
+
+QuanLyBlogUI ->> QuanLyBlogUI  : 3: Hien thi thong bao xac nhan xoa()
+activate QuanLyBlogUI
+deactivate QuanLyBlogUI
+
+
+
+Admin ->> QuanLyBlogUI  : 4: Chon dong y xoa()
+activate Admin
+activate QuanLyBlogUI
+deactivate Admin
+deactivate QuanLyBlogUI
+
+'Admin ->> QuanLyBlogUI  : 5: Lay Id blog can xoa()
+'activate Admin
+'activate QuanLyBlogUI
+'deactivate Admin
+'deactivate QuanLyBlogUI
+
+QuanLyBlogUI ->> QuanLyBlogController  : 5: Lay Id blog can xoa()
+activate QuanLyBlogUI
+activate QuanLyBlogController
+deactivate QuanLyBlogUI
+deactivate QuanLyBlogController
+
+Blog <<- QuanLyBlogController : 6: xoa blog()
+activate QuanLyBlogController
+activate Blog
+deactivate QuanLyBlogController
+deactivate Blog
+
+QuanLyBlogController ->> CSDL : 8: Cap nhat bang blog()
+activate QuanLyBlogController
+activate CSDL
+deactivate QuanLyBlogController
+deactivate CSDL
+
+
+
+QuanLyBlogController ->> QuanLyBlogUI : 9: Hien thi thong bao()
+activate QuanLyBlogController
+activate QuanLyBlogUI
+deactivate QuanLyBlogController
+deactivate QuanLyBlogUI
+
+
+
+@enduml

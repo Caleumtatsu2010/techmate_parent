@@ -1,9 +1,15 @@
 @startuml
 
+skinparam sequence {
+
+LifeLineBorderColor #A80036
+
+}
+
+
 skinparam {
 Participant underline
 ArrowColor  #A80036
-
 
 ActorBorderColor #A80036
 ActorFontStyle bold
@@ -21,6 +27,7 @@ ControlBackgroundColor #Wheat
 EntityFontStyle bold
 EntityBackgroundColor #Wheat
 }
+
 
 actor KhachHang
 boundary    DangNhapUI
@@ -84,11 +91,11 @@ activate User
 deactivate DangNhapController
 deactivate User
 
-DangNhapController ->> User : 9: Hien thi trang chu theo ()
+DangNhapController ->> DangNhapUI : 9: Hien thi trang chu()
 activate DangNhapController
-activate User
+activate DangNhapUI
 deactivate DangNhapController
-deactivate User
+deactivate DangNhapUI
 
 
 

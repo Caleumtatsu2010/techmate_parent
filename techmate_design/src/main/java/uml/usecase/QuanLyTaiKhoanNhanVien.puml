@@ -1,4 +1,10 @@
 @startuml
+
+skinparam {
+ActorBorderColor #A80036
+ActorFontStyle bold
+UsecaseFontStyle bold
+}
 left to right direction
 actor Admin #line:A80036;
 usecase QuanLyTaiKhoanNhanVien #Wheat;line:A80036;

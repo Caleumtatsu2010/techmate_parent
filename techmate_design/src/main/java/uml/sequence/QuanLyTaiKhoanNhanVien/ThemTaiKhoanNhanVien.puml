@@ -1,0 +1,97 @@
+@startuml
+
+skinparam sequence {
+
+LifeLineBorderColor #A80036
+
+}
+
+
+skinparam {
+Participant underline
+ArrowColor  #A80036
+
+ActorBorderColor #A80036
+ActorFontStyle bold
+
+
+BoundaryFontStyle bold
+BoundaryBackgroundColor #Bisque
+
+ControlFontStyle bold
+ControlBackgroundColor #Bisque
+
+ControlFontStyle bold
+ControlBackgroundColor #Bisque
+
+EntityFontStyle bold
+EntityBackgroundColor #Bisque
+}
+
+
+actor Admin 
+boundary    QuanLyTaiKhoanNhanVienUI
+control     QuanLyYaiKhoanNhanVienController
+entity      User
+boundary    CSDL
+
+
+'Admin ->> QuanLyTaiKhoanNhanVienUI : 1: Chon san pham can cap nhat()
+'activate Admin
+'activate QuanLyTaiKhoanNhanVienUI
+'deactivate Admin
+'deactivate QuanLyTaiKhoanNhanVienUI
+
+Admin ->> QuanLyTaiKhoanNhanVienUI : 1: Nhan nut them()
+activate Admin
+activate QuanLyTaiKhoanNhanVienUI
+deactivate Admin
+deactivate QuanLyTaiKhoanNhanVienUI
+
+QuanLyTaiKhoanNhanVienUI ->> QuanLyTaiKhoanNhanVienUI  : 2: Hien thi form them tai khoan nhan vien()
+activate QuanLyTaiKhoanNhanVienUI
+deactivate QuanLyTaiKhoanNhanVienUI
+
+
+
+Admin ->> QuanLyTaiKhoanNhanVienUI  : 3: Nhap thong tin nhan vien()
+activate Admin
+activate QuanLyTaiKhoanNhanVienUI
+deactivate Admin
+deactivate QuanLyTaiKhoanNhanVienUI
+
+Admin ->> QuanLyTaiKhoanNhanVienUI  : 4: Nhan nut them nhan vien()
+activate Admin
+activate QuanLyTaiKhoanNhanVienUI
+deactivate Admin
+deactivate QuanLyTaiKhoanNhanVienUI
+
+QuanLyTaiKhoanNhanVienUI ->> QuanLyYaiKhoanNhanVienController  : 5: Kiem tra thong tin nhan vien()
+activate QuanLyTaiKhoanNhanVienUI
+activate QuanLyYaiKhoanNhanVienController
+deactivate QuanLyTaiKhoanNhanVienUI
+deactivate QuanLyYaiKhoanNhanVienController
+
+User <<- QuanLyYaiKhoanNhanVienController : 6: Them user()
+activate QuanLyYaiKhoanNhanVienController
+activate User
+deactivate QuanLyYaiKhoanNhanVienController
+deactivate User
+
+QuanLyYaiKhoanNhanVienController ->> CSDL : 7: Cap nhat bang user()
+activate QuanLyYaiKhoanNhanVienController
+activate CSDL
+deactivate QuanLyYaiKhoanNhanVienController
+deactivate CSDL
+
+
+
+QuanLyYaiKhoanNhanVienController ->> QuanLyTaiKhoanNhanVienUI : 8: Hien thi thong bao()
+activate QuanLyYaiKhoanNhanVienController
+activate QuanLyTaiKhoanNhanVienUI
+deactivate QuanLyYaiKhoanNhanVienController
+deactivate QuanLyTaiKhoanNhanVienUI
+
+
+
+@enduml

@@ -1,36 +1,38 @@
 @startuml
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
 
-'!include plantuml-ae.iuml
+skinparam sequence {
+ArrowColor DeepSkyBlue
+ActorBorderColor DeepSkyBlue
+LifeLineBorderColor blue
+'LifeLineBackgroundColor #A9DCDF
 
-skinparam sequenceArrowThickness 2
-skinparam roundcorner 20
-skinparam maxmessagesize 60
+ParticipantBorderColor DeepSkyBlue
+ParticipantBackgroundColor DodgerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
 
+ActorBackgroundColor aqua
+ActorFontColor DeepSkyBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
 
-skinparam ParticipantPadding 20
-skinparam BoxPadding 10
-skinparam SequenceBoxBackgroundColor AliceBlue
-skinparam ActorBorderColor    SaddleBrown
-
-
-actor User #SaddleBrown
-
-participant "RequestParser" as A #white
-participant "TaskBundler" as B #white
-
-box "Magic happens here"
-participant "TaskExecutor" as C << (C,#ADD1B2) Testable >>
-end box
+actor User
+participant "First Class" as A
+participant "Second Class" as B
+participant "Last Class" as C
 
 User -> A: DoWork
 activate A
 
 A -> B: Create Request
-activate B #violet
+activate B
 
-create C
 B -> C: DoWork
-activate C #PapayaWhip
+activate C
 C --> B: WorkDone
 destroy C
 
@@ -39,6 +41,4 @@ deactivate B
 
 A --> User: Done
 deactivate A
-
-'!include ../../plantuml-styles/ae-copyright-footer.txt
 @enduml

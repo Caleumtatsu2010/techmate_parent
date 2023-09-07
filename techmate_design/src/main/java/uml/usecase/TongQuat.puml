@@ -1,0 +1,78 @@
+@startuml
+left to right direction
+actor NhanVien #line:A80036;
+actor KhachHang #line:A80036;
+actor Admin #line:A80036;
+
+skinparam {
+ActorBorderColor #A80036
+ActorFontStyle bold
+UsecaseFontStyle bold
+}
+
+
+usecase QuanLySanPham #Wheat;line:A80036;
+usecase QuanLyDanhMuc #Wheat;line:A80036;
+usecase QuanLyBlog #Wheat;line:A80036;
+usecase QuanLyDonHang #Wheat;line:A80036;
+usecase QuanLyTaiKhoanKhachHang #Wheat;line:A80036;
+usecase CapNhatThongTinCaNhan #Wheat;line:A80036;
+usecase DangNhap #Wheat;line:A80036;
+usecase XemThongBao #Wheat;line:A80036;
+usecase LayLaiMatKhau #Wheat;line:A80036;
+usecase XemSanPham #Wheat;line:A80036;
+usecase XemBlog #Wheat;line:A80036;
+usecase TimKiemSanPham #Wheat;line:A80036;
+usecase QuanLyGioHang #Wheat;line:A80036;
+usecase XuLyDatHang #Wheat;line:A80036;
+usecase DangKy #Wheat;line:A80036;
+
+usecase QuanLyTaiKhoanNhanVien #Wheat;line:A80036;
+usecase DangThongBao #Wheat;line:A80036;
+usecase XemThongKe #Wheat;line:A80036;
+
+
+NhanVien  ---> QuanLySanPham #line:A80036
+NhanVien  ---> QuanLyDanhMuc #Wheat;line:A80036;
+NhanVien  ---> QuanLyBlog #Wheat;line:A80036;
+NhanVien  ---> QuanLyDonHang #Wheat;line:A80036;
+NhanVien  ---> QuanLyTaiKhoanKhachHang #Wheat;line:A80036;
+NhanVien  ---> CapNhatThongTinCaNhan #Wheat;line:A80036;
+NhanVien  ---> DangNhap #Wheat;line:A80036;
+NhanVien  ---> XemThongBao #Wheat;line:A80036;
+NhanVien  ---> LayLaiMatKhau #Wheat;line:A80036;
+
+
+Admin  ---> QuanLyTaiKhoanNhanVien #Wheat;line:A80036
+Admin  ---> DangThongBao #Wheat;line:A80036
+Admin  ---> XemThongKe #Wheat;line:A80036
+
+
+QuanLySanPham  <--- Admin #line:A80036
+QuanLyDanhMuc  <--- Admin #line:A80036
+QuanLyBlog  <--- Admin #line:A80036
+QuanLyDonHang  <--- Admin #line:A80036
+QuanLyTaiKhoanKhachHang  <--- Admin #line:A80036
+CapNhatThongTinCaNhan  <--- Admin #line:A80036
+DangNhap  <--- Admin #line:A80036
+XemThongBao  <--- Admin #line:A80036
+LayLaiMatKhau  <--- Admin #line:A80036
+
+
+KhachHang  ---> CapNhatThongTinCaNhan #Wheat;line:A80036
+KhachHang  ---> DangNhap #Wheat;line:A80036
+KhachHang  ---> XemThongBao #Wheat;line:A80036;
+KhachHang  ---> LayLaiMatKhau #Wheat;line:A80036
+KhachHang  ---> XemSanPham #Wheat;line:A80036
+KhachHang  ---> XemBlog #Wheat;line:A80036
+KhachHang  ---> TimKiemSanPham #Wheat;line:A80036
+KhachHang  ---> QuanLyGioHang #Wheat;line:A80036
+KhachHang  ---> XuLyDatHang #Wheat;line:A80036
+KhachHang  ---> DangKy #Wheat;line:A80036
+
+
+
+
+
+
+@endum

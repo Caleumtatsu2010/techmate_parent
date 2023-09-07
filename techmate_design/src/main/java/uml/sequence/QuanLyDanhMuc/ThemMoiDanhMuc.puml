@@ -1,0 +1,91 @@
+@startuml
+
+skinparam sequence {
+
+LifeLineBorderColor #A80036
+
+}
+
+
+skinparam {
+Participant underline
+ArrowColor  #A80036
+
+ActorBorderColor #A80036
+ActorFontStyle bold
+
+
+BoundaryFontStyle bold
+BoundaryBackgroundColor #Bisque
+
+ControlFontStyle bold
+ControlBackgroundColor #Bisque
+
+ControlFontStyle bold
+ControlBackgroundColor #Bisque
+
+EntityFontStyle bold
+EntityBackgroundColor #Bisque
+}
+
+
+actor Admin 
+boundary    QuanLyDanhMucUI
+control     QuanLyDanhMucController
+entity      Category
+boundary    CSDL
+
+
+Admin ->> QuanLyDanhMucUI : 1: Nhan nut them()
+activate Admin
+activate QuanLyDanhMucUI
+deactivate Admin
+deactivate QuanLyDanhMucUI
+
+QuanLyDanhMucUI ->> QuanLyDanhMucUI  : 2: Hien thi form them danh muc()
+activate QuanLyDanhMucUI
+deactivate QuanLyDanhMucUI
+
+
+
+Admin ->> QuanLyDanhMucUI  : 3: Nhap thong tin danh muc()
+activate Admin
+activate QuanLyDanhMucUI
+deactivate Admin
+deactivate QuanLyDanhMucUI
+
+Admin ->> QuanLyDanhMucUI  : 4: Nhan nut them danh muc()
+activate Admin
+activate QuanLyDanhMucUI
+deactivate Admin
+deactivate QuanLyDanhMucUI
+
+QuanLyDanhMucUI ->> QuanLyDanhMucController  : 5: Kiem tra thong tin danh muc()
+activate QuanLyDanhMucUI
+activate QuanLyDanhMucController
+deactivate QuanLyDanhMucUI
+deactivate QuanLyDanhMucController
+
+Category <<- QuanLyDanhMucController : 6: Them danh muc()
+activate QuanLyDanhMucController
+activate Category
+deactivate QuanLyDanhMucController
+deactivate Category
+
+QuanLyDanhMucController ->> CSDL : 7: Cap nhat bang category()
+activate QuanLyDanhMucController
+activate CSDL
+deactivate QuanLyDanhMucController
+deactivate CSDL
+
+
+
+QuanLyDanhMucController ->> QuanLyDanhMucUI : 8: Hien thi thong bao()
+activate QuanLyDanhMucController
+activate QuanLyDanhMucUI
+deactivate QuanLyDanhMucController
+deactivate QuanLyDanhMucUI
+
+
+
+@enduml

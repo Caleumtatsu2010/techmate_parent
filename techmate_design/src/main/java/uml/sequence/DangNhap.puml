@@ -1,0 +1,102 @@
+@startuml
+
+skinparam sequence {
+
+LifeLineBorderColor #A80036
+
+}
+
+
+skinparam {
+Participant underline
+ArrowColor  #A80036
+
+ActorBorderColor #A80036
+ActorFontStyle bold
+
+
+BoundaryFontStyle bold
+BoundaryBackgroundColor #Wheat
+
+ControlFontStyle bold
+ControlBackgroundColor #Wheat
+
+ControlFontStyle bold
+ControlBackgroundColor #Wheat
+
+EntityFontStyle bold
+EntityBackgroundColor #Wheat
+}
+
+
+actor KhachHang
+boundary    DangNhapUI
+control     DangNhapController
+entity      User
+boundary    CSDL
+
+
+KhachHang ->> DangNhapUI : 1: Nhan lien ket dang nhap()
+activate KhachHang
+activate DangNhapUI
+deactivate KhachHang
+deactivate DangNhapUI
+
+DangNhapUI ->> DangNhapUI  : 2: Hien thi form dang nhap()
+activate DangNhapUI
+deactivate DangNhapUI
+
+
+
+KhachHang ->> DangNhapUI  : 3: Nhap ten dang nhap, mat khau()
+activate KhachHang
+activate DangNhapUI
+deactivate KhachHang
+deactivate DangNhapUI
+
+KhachHang ->> DangNhapUI  : 4: Nhan nut dang nhap()
+activate KhachHang
+activate DangNhapUI
+deactivate KhachHang
+deactivate DangNhapUI
+
+DangNhapUI ->> DangNhapController  : 5: Kiem tra tai khoan, mat khau da nhap()
+activate DangNhapUI
+activate DangNhapController
+deactivate DangNhapUI
+deactivate DangNhapController
+
+'DangNhapController ->> DangNhapUI : 6: Hien thi form xac nhan()
+'activate DangNhapController
+'activate DangNhapUI
+'deactivate DangNhapController
+'deactivate DangNhapUI
+
+'KhachHang ->> DangNhapUI : 7: Nhap ma xac nhan()
+'activate KhachHang
+'activate DangNhapUI
+'deactivate KhachHang
+'deactivate DangNhapUI
+
+
+DangNhapController ->> CSDL : 6: Lay username, password trong bang user()
+activate DangNhapController
+activate CSDL
+deactivate DangNhapController
+deactivate CSDL
+
+User ->> DangNhapController : 7: Get user()
+activate DangNhapController
+activate User
+deactivate DangNhapController
+deactivate User
+
+DangNhapController ->> DangNhapUI : 9: Hien thi trang chu()
+activate DangNhapController
+activate DangNhapUI
+deactivate DangNhapController
+deactivate DangNhapUI
+
+
+
+@enduml

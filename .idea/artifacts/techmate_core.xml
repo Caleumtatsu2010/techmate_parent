@@ -50,6 +50,7 @@
           <element id="library" level="project" name="Maven: com.github.spotbugs:spotbugs-annotations:3.1.12" />
           <element id="library" level="project" name="Maven: com.google.code.findbugs:jsr305:3.0.2" />
           <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.24" />
+          <element id="library" level="project" name="Maven: org.webjars:ckeditor:4.4.7" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="techmate_core/web/Web" />

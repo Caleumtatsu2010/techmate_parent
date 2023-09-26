@@ -9,4 +9,10 @@ public class StringUtil {
 		}
 		return str.substring(sepPos + separator.length());
 	}
+	
+	public static String subStringBefore(String str, String separator) {
+		int pos = str.indexOf(separator);
+		return pos >= 0 ? str.substring(0, pos) : str;
+	}
+	
 }

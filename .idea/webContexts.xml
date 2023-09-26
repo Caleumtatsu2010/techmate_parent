@@ -3,10 +3,21 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+        <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/WEB-INF/tags/AdminLayout.tag" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/WEB-INF/tags" />
         <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/WEB-INF/tags/ClientLayout.tag" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/WEB-INF/tags" />
+        <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/account/Index.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/account" />
+        <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/account/admin/Update.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/account/admin" />
+        <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/admin/Update.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/admin" />
+        <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/blog/Index.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/blog" />
+        <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/home/Index.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/home" />
+        <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/login/Login.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/login" />
+        <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/order/Index.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/order" />
+        <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/product/Update.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/admin/product" />
+        <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/blog/Index.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/blog" />
         <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/cart/Cart.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/cart" />
         <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/cart/Index.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/cart" />
         <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/product/Detail.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/product" />
+        <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/product/Index.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/product" />
         <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/user/Index.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/user" />
         <entry key="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/user/address/Index2.jsp" value="file://$PROJECT_DIR$/techmate_core/out/artifacts/webapp/views/client/user/address" />
       </map>

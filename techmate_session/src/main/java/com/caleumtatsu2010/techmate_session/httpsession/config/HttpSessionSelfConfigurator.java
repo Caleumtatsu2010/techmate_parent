@@ -12,7 +12,7 @@ public class HttpSessionSelfConfigurator {
 	private SessionConfig sessionConfig;
 	
 	public HttpSessionSelfConfigurator(String sessionConfigPath) {
-		this.sessionConfig = readSessionConfig(sessionConfigPath, "maxInactiveInterval");
+		this.sessionConfig = readSessionConfig(sessionConfigPath, SessionConfigProperties.MAX_INACTIVE_INTERVAL);
 	}
 	
 	public SessionConfig readSessionConfig(String sessionConfigPath, String propName) {

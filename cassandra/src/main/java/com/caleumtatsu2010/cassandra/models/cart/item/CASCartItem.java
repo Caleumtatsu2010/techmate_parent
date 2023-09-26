@@ -17,4 +17,5 @@ public class CASCartItem {
 	private UUID cartId;
 	private String productId;
 	private int num;
+	private String check;
 }

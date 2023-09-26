@@ -1,0 +1,19 @@
+@startuml
+
+skinparam {
+ActorBorderColor #A80036
+ActorFontStyle bold
+UsecaseFontStyle bold
+}
+left to right direction
+actor Admin #line:A80036;
+usecase QuanLyTaiKhoanNhanVien #Wheat;line:A80036;
+usecase DangNhap #Wheat;line:A80036;
+usecase ThemTaiKhoanNhanVien #Wheat;line:A80036;
+usecase CapNhatTrangThai #Wheat;line:A80036;
+
+Admin  --> QuanLyTaiKhoanNhanVien #line:A80036 : \t\t\t\t
+QuanLyTaiKhoanNhanVien  .left.>  DangNhap #line:A80036 : \n\n\n\n <<include>> \n\n\n\n
+QuanLyTaiKhoanNhanVien  <.down.  ThemTaiKhoanNhanVien #line:A80036 : \t\t <<extend>>\t\t
+QuanLyTaiKhoanNhanVien  <.right.  CapNhatTrangThai #line:A80036 : \n\n\n\n <<extend>> \n\n\n\n
+@endum

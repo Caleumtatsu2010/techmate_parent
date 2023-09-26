@@ -1,0 +1,113 @@
+@startuml
+
+skinparam sequence {
+
+LifeLineBorderColor #A80036
+
+}
+
+
+skinparam {
+Participant underline
+ArrowColor  #A80036
+
+ActorBorderColor #A80036
+ActorFontStyle bold
+
+
+BoundaryFontStyle bold
+BoundaryBackgroundColor #Bisque
+
+ControlFontStyle bold
+ControlBackgroundColor #Bisque
+
+ControlFontStyle bold
+ControlBackgroundColor #Bisque
+
+EntityFontStyle bold
+EntityBackgroundColor #Bisque
+}
+
+
+actor KhachHang
+boundary    QuanLyGioHangUI
+control     QuanLyGioHangController
+'entity      Order
+'boundary    CSDL
+
+
+KhachHang ->> QuanLyGioHangUI : 1: Chon gio hang()
+activate KhachHang
+activate QuanLyGioHangUI
+deactivate KhachHang
+deactivate QuanLyGioHangUI
+
+
+
+'QuanLyDonHangUI ->> QuanLyDonHangUI  : 3: Hien thi form cap nhat()
+'activate QuanLyDonHangUI
+'deactivate QuanLyDonHangUI
+
+
+
+'Admin ->> QuanLyDonHangUI  : 3: Lay id cua don hang()
+'activate Admin
+'activate QuanLyDonHangUI
+'deactivate Admin
+'deactivate QuanLyDonHangUI
+
+'Admin ->> QuanLyDonHangUI  : 3: Lay id cua don hang()
+'activate Admin
+'activate QuanLyDonHangUI
+'deactivate Admin
+'deactivate QuanLyDonHangUI
+
+QuanLyGioHangUI ->> QuanLyGioHangController  : 2: Lay thong tin gio hang trong session()
+activate QuanLyGioHangUI
+activate QuanLyGioHangController
+deactivate QuanLyGioHangUI
+deactivate QuanLyGioHangController
+
+QuanLyGioHangController ->> QuanLyGioHangUI : 3: Hien thi gio hang()
+activate QuanLyGioHangController
+activate QuanLyGioHangUI
+deactivate QuanLyGioHangController
+deactivate QuanLyGioHangUI
+
+
+KhachHang ->> QuanLyGioHangUI : 4: Thuc hien thay doi thong tin gio hang()
+activate KhachHang
+activate QuanLyGioHangUI
+deactivate KhachHang
+deactivate QuanLyGioHangUI
+
+QuanLyGioHangUI ->> QuanLyGioHangController  : 5: Cap nhat thong tin gio hang trong session()
+activate QuanLyGioHangUI
+activate QuanLyGioHangController
+deactivate QuanLyGioHangUI
+deactivate QuanLyGioHangController
+
+'Order <<- QuanLyGioHangController : 4: Cap nhat trang thai don hang()
+'activate QuanLyGioHangController
+'activate Order
+'deactivate QuanLyGioHangController
+'deactivate Order
+
+'QuanLyGioHangController ->> CSDL : 5: Cap nhat bang Order()
+'activate QuanLyGioHangController
+'activate CSDL
+'deactivate QuanLyGioHangController
+'deactivate CSDL
+
+
+
+
+
+QuanLyGioHangController ->> QuanLyGioHangUI : 6: Hien thi lai danh sach gio hang()
+activate QuanLyGioHangController
+activate QuanLyGioHangUI
+deactivate QuanLyGioHangController
+deactivate QuanLyGioHangUI
+
+
+@enduml

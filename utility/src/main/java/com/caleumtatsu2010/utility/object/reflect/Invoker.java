@@ -124,13 +124,17 @@ public class Invoker {
 		List<String> attrType = new ArrayList<>();
 		Field[] attributes = object.getClass().getDeclaredFields();
 		for (Field field : attributes) {
-			// Dynamically read Attribute Name
-			attrType.add(field.getType().toString().substring(6));
+			if (field.getType().toString().contains("class")) {
+				// Dynamically read Attribute Name
+				attrType.add(field.getType().toString().substring(6));
+			} else {
+				attrType.add(field.getType().toString());
+			}
 		}
 		return attrType;
 	}
 	
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
 //		Calendar cal = Calendar.getInstance();
 //        Cart cart = new Cart(2, "userid", 10, DateUtility.toSqlTimestamp(cal), DateUtility.toSqlTimestamp(cal));
 //
@@ -141,6 +145,6 @@ public class Invoker {
 //        System.out.println(invokeGetter(cart, "modifiedAt"));
 		
 	
-	}
+//	}
 	
 }

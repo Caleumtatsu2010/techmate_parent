@@ -9,6 +9,28 @@ import java.util.*;
 
 public class RequestUlti {
 	
+	/**
+	 * for object and List<ArrayList> objectList only
+	 * @param request
+	 * @param obj
+	 */
+	public static void autoSetAttribute(HttpServletRequest request, Object obj) {
+		String attributeName = "";
+		if (obj != null) {
+			attributeName = obj.getClass().getSimpleName();
+		}
+		if (obj instanceof List) {
+			String elementClassName = "";
+			try {
+				elementClassName = ((List<?>) obj).get(0).getClass().getSimpleName();
+			} catch (IndexOutOfBoundsException e) {
+				obj = null;// ex NullList
+			}
+			attributeName = elementClassName + "List";// ex ProductList
+		}
+		request.setAttribute(attributeName, obj);
+	}
+	
 	public static void mapRequestParamToObjByField(HttpServletRequest request, Object obj) {
 		try {
 			List<String> attrNames = Invoker.getAllAttributeNames(obj);
@@ -46,6 +68,11 @@ public class RequestUlti {
 		return parameterMap;
 	}
 	
+	public static Iterator<Map.Entry<String, String>> getAllParametersIterator(HttpServletRequest request) {
+		Map<String, String> parameterMap = getAllParameters(request);
+		Iterator<Map.Entry<String, String>> new_Iterator = parameterMap.entrySet().iterator();
+		return new_Iterator;
+	}
 	
 	
 }

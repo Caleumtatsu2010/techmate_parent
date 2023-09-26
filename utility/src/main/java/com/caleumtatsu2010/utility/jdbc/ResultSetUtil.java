@@ -16,7 +16,7 @@ public class ResultSetUtil {
 		for (int i = 1; i <= rsmd.getColumnCount(); i++) {
 			switch (rsmd.getColumnType(i)) {
 				case Types.TIMESTAMP:
-					resultSetValue = rs.getTimestamp(rsmd.getColumnName(i));
+					resultSetValue = rs.getTimestamp(rsmd.getColumnName(i));// new update for timestamp
 					break;
 				case Types.LONGVARCHAR:
 					resultSetValue = rs.getString(rsmd.getColumnName(i));
@@ -38,6 +38,9 @@ public class ResultSetUtil {
 					break;
 				case Types.DECIMAL:
 					resultSetValue = rs.getDouble(rsmd.getColumnName(i));
+					break;
+				case Types.LONGVARBINARY:
+					resultSetValue = rs.getBytes(rsmd.getColumnName(i));// new update for bytes array
 					break;
 				default:
 			}

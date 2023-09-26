@@ -1,0 +1,91 @@
+@startuml
+
+skinparam sequence {
+
+LifeLineBorderColor #A80036
+
+}
+
+
+skinparam {
+Participant underline
+ArrowColor  #A80036
+
+ActorBorderColor #A80036
+ActorFontStyle bold
+
+
+BoundaryFontStyle bold
+BoundaryBackgroundColor #Wheat
+
+ControlFontStyle bold
+ControlBackgroundColor #Wheat
+
+ControlFontStyle bold
+ControlBackgroundColor #Wheat
+
+EntityFontStyle bold
+EntityBackgroundColor #Wheat
+}
+
+
+actor NguoiDung
+boundary    CapNhatThongTinCaNhanUI
+control     CapNhatThongTinCaNhanController
+entity      User
+boundary    CSDL
+
+
+NguoiDung ->> CapNhatThongTinCaNhanUI : 1: Chon muc cap nhat thong tin ca nhan()
+activate NguoiDung
+activate CapNhatThongTinCaNhanUI
+deactivate NguoiDung
+deactivate CapNhatThongTinCaNhanUI
+
+CapNhatThongTinCaNhanUI ->> CapNhatThongTinCaNhanUI  : 2: Hien thi form cap nhat thong tin ca nhan()
+activate CapNhatThongTinCaNhanUI
+deactivate CapNhatThongTinCaNhanUI
+
+
+
+NguoiDung ->> CapNhatThongTinCaNhanUI  : 3: Nhap thong tin ca nhan()
+activate NguoiDung
+activate CapNhatThongTinCaNhanUI
+deactivate NguoiDung
+deactivate CapNhatThongTinCaNhanUI
+
+NguoiDung ->> CapNhatThongTinCaNhanUI  : 4: Nhan nut cap nhat()
+activate NguoiDung
+activate CapNhatThongTinCaNhanUI
+deactivate NguoiDung
+deactivate CapNhatThongTinCaNhanUI
+
+CapNhatThongTinCaNhanUI ->> CapNhatThongTinCaNhanController  : 5: Kiem tra thong tin da nhap()
+activate CapNhatThongTinCaNhanUI
+activate CapNhatThongTinCaNhanController
+deactivate CapNhatThongTinCaNhanUI
+deactivate CapNhatThongTinCaNhanController
+
+User <<- CapNhatThongTinCaNhanController : 6: Cap nhat user()
+activate CapNhatThongTinCaNhanController
+activate User
+deactivate CapNhatThongTinCaNhanController
+deactivate User
+
+CapNhatThongTinCaNhanController ->> CSDL : 7: Cap nhat bang user()
+activate CapNhatThongTinCaNhanController
+activate CSDL
+deactivate CapNhatThongTinCaNhanController
+deactivate CSDL
+
+
+
+CapNhatThongTinCaNhanController ->> CapNhatThongTinCaNhanUI : 8: Hien thi thong bao()
+activate CapNhatThongTinCaNhanController
+activate CapNhatThongTinCaNhanUI
+deactivate CapNhatThongTinCaNhanController
+deactivate CapNhatThongTinCaNhanUI
+
+
+
+@enduml
